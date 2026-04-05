@@ -55,10 +55,13 @@
             border-radius: 8px;
         }
         .sloka img {
-            max-width: 100%;
-            margin: 10px 0;
-            border-radius: 10px;
-        }
+    max-width: 300px; /* limits width */
+    width: 100%;      /* scales down on smaller screens */
+    height: auto;     /* keeps aspect ratio */
+    margin: 10px 0;
+    border-radius: 10px;
+    display: block;
+}
         .telugu { font-size: 18px; font-weight: 600; margin-bottom: 5px; }
         .transliteration { font-style: italic; margin-bottom: 5px; }
         .meaning { color: #555; }
