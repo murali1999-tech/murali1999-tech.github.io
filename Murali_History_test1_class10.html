@@ -213,16 +213,22 @@ function checkAnswers() {
 
     let score = 0;
     let total = Object.keys(answers).length;
+    let answerList = "<h3>Correct Answers:</h3><ol>";
 
     for (let q in answers) {
         let selected = document.querySelector('input[name="'+q+'"]:checked');
+        
         if (selected && selected.value === answers[q]) {
             score++;
         }
+
+        answerList += "<li>" + q.toUpperCase() + " → " + answers[q].toUpperCase() + "</li>";
     }
 
+    answerList += "</ol>";
+
     document.getElementById("result").innerHTML =
-        "Your Score: " + score + " / " + total;
+        "Your Score: " + score + " / " + total + "<br><br>" + answerList;
 }
 </script></body>
 </html>
