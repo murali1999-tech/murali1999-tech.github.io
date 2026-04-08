@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Indian Constitution MCQ Quiz</title>
+<style>
+    body { font-family: Arial, sans-serif; background: #f9f9f9; margin: 20px; }
+    h1 { text-align: center; color: #333; }
+    .question { background: #fff; padding: 15px; margin-bottom: 10px; border-radius: 8px; box-shadow: 0 0 5px rgba(0,0,0,0.1); }
+    .options { margin-top: 10px; }
+    button { padding: 10px 20px; font-size: 16px; margin-top: 20px; cursor: pointer; }
+    .result { font-size: 18px; margin-top: 20px; font-weight: bold; }
+    .congrats { color: green; }
+</style>
+</head>
+<body>
+
+<h1>Indian Constitution MCQ Quiz</h1>
+
+<form id="quizForm">
+
+<!-- Example Question Structure -->
+<div class="question">
+    <p>1. Universal Adult Franchise in India means:</p>
+    <div class="options">
+        <label><input type="radio" name="q1" value="0"> Only property owners can vote</label><br>
+        <label><input type="radio" name="q1" value="1"> All adult citizens above 18 can vote</label><br>
+        <label><input type="radio" name="q1" value="0"> Only men above 21 can vote</label><br>
+        <label><input type="radio" name="q1" value="0"> Only government employees can vote</label>
+    </div>
+</div>
+
+<div class="question">
+    <p>2. Which Article provides Right to Constitutional Remedies?</p>
+    <div class="options">
+        <label><input type="radio" name="q2" value="1"> Article 32</label><br>
+        <label><input type="radio" name="q2" value="0"> Article 21</label><br>
+        <label><input type="radio" name="q2" value="0"> Article 19</label><br>
+        <label><input type="radio" name="q2" value="0"> Article 14</label>
+    </div>
+</div>
+
+<div class="question">
+    <p>3. Which Fundamental Right abolishes untouchability?</p>
+    <div class="options">
+        <label><input type="radio" name="q3" value="1"> Article 17</label><br>
+        <label><input type="radio" name="q3" value="0"> Article 19</label><br>
+        <label><input type="radio" name="q3" value="0"> Article 21</label><br>
+        <label><input type="radio" name="q3" value="0"> Article 25</label>
+    </div>
+</div>
+
+<!-- Add 22 more questions here following same structure -->
+<!-- For demonstration, let's copy similar questions to make 25 total -->
+<script>
+const questions = [
+    {q:"4. Which Article deals with Right to Education?", a:"21A"},
+    {q:"5. Fundamental Duties were added by which Amendment?", a:"42nd"},
+    {q:"6. Freedom of Religion is covered under which Articles?", a:"25-28"},
+    {q:"7. Minimum Age to vote in India?", a:"18"},
+    {q:"8. Article 14 deals with?", a:"Equality before law"},
+    {q:"9. DPSPs are:", a:"Non-justiciable"},
+    {q:"10. Example of social DPSP?", a:"Free and compulsory education"},
+    {q:"11. Example of economic DPSP?", a:"Equal pay for equal work"},
+    {q:"12. Example of political DPSP?", a:"Organize village panchayats"},
+    {q:"13. Right against exploitation is in Articles?", a:"23-24"},
+    {q:"14. Cultural & Educational Rights Articles?", a:"29-30"},
+    {q:"15. Role of Judiciary in welfare state?", a:"Protects FR + promotes DPSPs"},
+    {q:"16. Secularism Articles?", a:"25-28"},
+    {q:"17. Example of social justice?", a:"Reservation for SC/ST/OBC"},
+    {q:"18. Example of economic justice?", a:"Minimum wages"},
+    {q:"19. Example of political justice?", a:"Adult franchise"},
+    {q:"20. Fundamental Rights are:", a:"Justiciable"},
+    {q:"21. DPSPs are:", a:"Guidelines for government"},
+    {q:"22. Article 32 allows?", a:"Approach Supreme Court for FR"},
+    {q:"23. Article 226 allows?", a:"Approach High Court for FR"},
+    {q:"24. Right to Freedom Articles?", a:"19-22"},
+    {q:"25. Who must respect public property as duty?", a:"All citizens"}
+];
+
+const form = document.getElementById('quizForm');
+questions.forEach((item, index)=>{
+    let qNum = index+4; // 3 questions already hard-coded
+    const div = document.createElement('div');
+    div.className = "question";
+    div.innerHTML = `
+        <p>${qNum}. ${item.q}</p>
+        <div class="options">
+            <label><input type="radio" name="q${qNum}" value="1"> ${item.a}</label><br>
+            <label><input type="radio" name="q${qNum}" value="0"> Option 2</label><br>
+            <label><input type="radio" name="q${qNum}" value="0"> Option 3</label><br>
+            <label><input type="radio" name="q${qNum}" value="0"> Option 4</label>
+        </div>
+    `;
+    form.appendChild(div);
+});
+
+form.innerHTML += `<button type="button" onclick="submitQuiz()">Submit</button><div class="result" id="result"></div>`;
+
+function submitQuiz(){
+    let score = 0;
+    for(let i=1; i<=25; i++){
+        const selected = document.querySelector('input[name="q'+i+'"]:checked');
+        if(selected){
+            score += parseInt(selected.value);
+        }
+    }
+    const resultDiv = document.getElementById('result');
+    if(score>10){
+        resultDiv.innerHTML = `<span class="congrats">Congratulations! You scored ${score}/25</span>`;
+    } else {
+        resultDiv.textContent = `You scored ${score}/25. Keep practicing!`;
+    }
+}
+</script>
+
+</form>
+</body>
+</html>
