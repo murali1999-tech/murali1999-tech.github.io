@@ -5,6 +5,158 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Indian Constitution MCQ Quiz</title>
 <style>
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #eef2f7;
+    margin: 0;
+    padding: 0;
+}
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin: 30px 0;
+}
+.quiz-container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+.question-card {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+.question-card:hover {
+    transform: translateY(-5px);
+}
+.question-card p {
+    font-weight: 600;
+    color: #34495e;
+}
+.options label {
+    display: block;
+    padding: 8px 15px;
+    margin: 5px 0;
+    border-radius: 8px;
+    cursor: pointer;
+    background: #f5f7fa;
+    transition: background 0.2s;
+}
+.options label:hover {
+    background: #d1e7ff;
+}
+button {
+    display: block;
+    width: 200px;
+    margin: 20px auto;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background: #3498db;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+button:hover {
+    background: #2980b9;
+}
+.result {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 25px;
+}
+.congrats {
+    color: green;
+}
+.try-again {
+    color: #e74c3c;
+}
+</style>
+</head>
+<body>
+
+<h1>Indian Constitution MCQ Quiz</h1>
+
+<div class="quiz-container">
+<form id="quizForm"></form>
+<div class="result" id="result"></div>
+</div>
+
+<script>
+// MCQ questions array with 4 real options each
+const mcqs = [
+    {q:"1. Universal Adult Franchise in India means:", options:["Only property owners can vote","All adult citizens above 18 can vote","Only men above 21 can vote","Only government employees can vote"], answer:1},
+    {q:"2. Which Article provides Right to Constitutional Remedies?", options:["Article 21","Article 19","Article 32","Article 14"], answer:2},
+    {q:"3. Which Fundamental Right abolishes untouchability?", options:["Article 17","Article 19","Article 21","Article 25"], answer:0},
+    {q:"4. Minimum Age to vote in India?", options:["16 years","18 years","21 years","25 years"], answer:1},
+    {q:"5. Article 14 guarantees?", options:["Freedom of Speech","Equality before Law","Right to Education","Protection from Exploitation"], answer:1},
+    {q:"6. Right to Freedom is covered under Articles?", options:["19–22","14–18","23–24","25–28"], answer:0},
+    {q:"7. Right against exploitation includes:", options:["Child labor ban","Reservation in jobs","Free education","Freedom of religion"], answer:0},
+    {q:"8. Fundamental Duties were added by?", options:["44th Amendment","42nd Amendment","86th Amendment","73rd Amendment"], answer:1},
+    {q:"9. DPSPs are:", options:["Justiciable","Non-justiciable","Fundamental Rights","Fundamental Duties"], answer:1},
+    {q:"10. Example of social DPSP:", options:["Equal pay for equal work","Free and compulsory education","Organize panchayats","Protection from exploitation"], answer:1},
+    {q:"11. Example of economic DPSP:", options:["Equal pay for equal work","Freedom of speech","Reservation in jobs","Protection of environment"], answer:0},
+    {q:"12. Example of political DPSP:", options:["Organize village panchayats","Free healthcare","Child labor ban","Minority rights"], answer:0},
+    {q:"13. Cultural & Educational Rights are under Articles?", options:["25–28","29–30","14–18","23–24"], answer:1},
+    {q:"14. Freedom of Religion is under Articles?", options:["25–28","14–18","19–22","29–30"], answer:0},
+    {q:"15. Article 32 allows citizens to approach?", options:["Supreme Court","High Court","District Court","Village Panchayat"], answer:0},
+    {q:"16. Article 226 allows citizens to approach?", options:["Supreme Court","High Court","Lower Courts","Police"], answer:1},
+    {q:"17. Which Article abolishes titles?", options:["Article 17","Article 18","Article 14","Article 32"], answer:1},
+    {q:"18. Secularism in India ensures:", options:["Only Hindu religion is followed","Freedom to follow any religion","No religion is allowed","Only cultural festivals"], answer:1},
+    {q:"19. Social Justice examples include:", options:["Reservation for SC/ST/OBC","Minimum wages","Adult franchise","Right to Information"], answer:0},
+    {q:"20. Economic Justice examples include:", options:["Reservation in education","Minimum wages","Freedom of speech","Protection of monuments"], answer:1},
+    {q:"21. Political Justice examples include:", options:["Adult franchise","Child labor ban","Free education","Protection of environment"], answer:0},
+    {q:"22. Right to Education became Fundamental Right by which amendment?", options:["42nd Amendment","73rd Amendment","86th Amendment","44th Amendment"], answer:2},
+    {q:"23. Citizens must respect public property under which duty?", options:["Fundamental Duty 7","Fundamental Duty 8","Fundamental Duty 9","Fundamental Duty 10"], answer:2},
+    {q:"24. Which Article prohibits bonded labor?", options:["Article 23","Article 24","Article 32","Article 14"], answer:0},
+    {q:"25. Which Article ensures equality of opportunity in public employment?", options:["Article 14","Article 16","Article 17","Article 18"], answer:1}
+];
+
+const form = document.getElementById("quizForm");
+
+// Generate questions dynamically
+mcqs.forEach((item, index)=>{
+    const div = document.createElement("div");
+    div.className = "question-card";
+    let optionsHTML = item.options.map((opt,i)=>
+        `<label><input type="radio" name="q${index}" value="${i}"> ${opt}</label>`
+    ).join("<br>");
+    div.innerHTML = `<p>${item.q}</p><div class="options">${optionsHTML}</div>`;
+    form.appendChild(div);
+});
+
+form.innerHTML += `<button type="button" onclick="submitQuiz()">Submit</button>`;
+
+function submitQuiz(){
+    let score = 0;
+    mcqs.forEach((item,index)=>{
+        const selected = document.querySelector(`input[name="q${index}"]:checked`);
+        if(selected && parseInt(selected.value) === item.answer) score++;
+    });
+    const resultDiv = document.getElementById("result");
+    if(score > 10){
+        resultDiv.innerHTML = `<span class="congrats">🎉 Congratulations! You scored ${score}/25 🎉</span>`;
+    } else {
+        resultDiv.innerHTML = `<span class="try-again">You scored ${score}/25. Keep practicing!</span>`;
+    }
+    window.scrollTo({top: 0, behavior: 'smooth'});
+}
+</script>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Indian Constitution MCQ Quiz</title>
+<style>
     body { font-family: Arial, sans-serif; background: #f9f9f9; margin: 20px; }
     h1 { text-align: center; color: #333; }
     .question { background: #fff; padding: 15px; margin-bottom: 10px; border-radius: 8px; box-shadow: 0 0 5px rgba(0,0,0,0.1); }
