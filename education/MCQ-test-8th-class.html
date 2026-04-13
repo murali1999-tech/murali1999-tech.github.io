@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Age of Revolutions Quiz</title>
+
+<!-- SEO -->
+<meta name="description" content="Learn The Age of Revolutions for Class 8 ICSE with detailed explanation of American, French and Industrial Revolutions in a modern and easy format.">
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TXBXT26HKX"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-TXBXT26HKX', { 'anonymize_ip': true });
+</script>
+
+<style>
+body { font-family: Arial; background:#f4f7fb; margin:0; }
+header { background:#2a5298; color:#fff; padding:20px; text-align:center; }
+.container { max-width:900px; margin:auto; padding:20px; }
+.card { background:#fff; padding:20px; margin-bottom:15px; border-radius:10px; }
+button { padding:10px 20px; margin:10px 5px; cursor:pointer; }
+.result { background:#eaf2ff; padding:15px; border-radius:10px; }
+.correct { color:green; }
+.wrong { color:red; }
+</style>
+
+</head>
+
+<body onload="resetQuiz()">
+
+<header>
+<h1>Age of Revolutions Quiz</h1>
+<p>Prepared by Murali</p>
+</header>
+
+<div class="container">
+
+<form id="quizForm">
+
+<div class="card">
+<p>1. The Age of Revolutions took place mainly during:</p>
+<label><input type="radio" name="q1" value="b"> 18th century</label><br>
+<label><input type="radio" name="q1" value="a"> 15th century</label><br>
+<label><input type="radio" name="q1" value="c"> 20th century</label>
+</div>
+
+<div class="card">
+<p>2. The American Revolution ended in:</p>
+<label><input type="radio" name="q2" value="a"> 1783</label><br>
+<label><input type="radio" name="q2" value="b"> 1770</label><br>
+<label><input type="radio" name="q2" value="c"> 1800</label>
+</div>
+
+<div class="card">
+<p>3. “No taxation without representation” is linked to:</p>
+<label><input type="radio" name="q3" value="b"> American Revolution</label><br>
+<label><input type="radio" name="q3" value="a"> French Revolution</label><br>
+<label><input type="radio" name="q3" value="c"> Industrial Revolution</label>
+</div>
+
+<div class="card">
+<p>4. The Bastille was stormed in:</p>
+<label><input type="radio" name="q4" value="b"> 1789</label><br>
+<label><input type="radio" name="q4" value="a"> 1776</label><br>
+<label><input type="radio" name="q4" value="c"> 1804</label>
+</div>
+
+<div class="card">
+<p>5. The slogan of the French Revolution was:</p>
+<label><input type="radio" name="q5" value="b"> Liberty, Equality, Fraternity</label><br>
+<label><input type="radio" name="q5" value="a"> Unity and Justice</label><br>
+<label><input type="radio" name="q5" value="c"> Freedom and Peace</label>
+</div>
+
+<div class="card">
+<p>6. The Industrial Revolution began in:</p>
+<label><input type="radio" name="q6" value="b"> Britain</label><br>
+<label><input type="radio" name="q6" value="a"> France</label><br>
+<label><input type="radio" name="q6" value="c"> USA</label>
+</div>
+
+<div class="card">
+<p>7. Which invention is related to the Industrial Revolution?</p>
+<label><input type="radio" name="q7" value="a"> Steam Engine</label><br>
+<label><input type="radio" name="q7" value="b"> Printing Press</label><br>
+<label><input type="radio" name="q7" value="c"> Compass</label>
+</div>
+
+<div class="card">
+<p>8. The American colonies were ruled by:</p>
+<label><input type="radio" name="q8" value="b"> Britain</label><br>
+<label><input type="radio" name="q8" value="a"> France</label><br>
+<label><input type="radio" name="q8" value="c"> Spain</label>
+</div>
+
+<div class="card">
+<p>9. The French society was divided into:</p>
+<label><input type="radio" name="q9" value="b"> Three estates</label><br>
+<label><input type="radio" name="q9" value="a"> Two classes</label><br>
+<label><input type="radio" name="q9" value="c"> Four groups</label>
+</div>
+
+<div class="card">
+<p>10. Urbanization means:</p>
+<label><input type="radio" name="q10" value="b"> Moving to cities</label><br>
+<label><input type="radio" name="q10" value="a"> Moving to villages</label><br>
+<label><input type="radio" name="q10" value="c"> Staying in forests</label>
+</div>
+
+<button type="button" onclick="submitQuiz()">Submit</button>
+<button type="button" onclick="resetQuiz()">Reset</button>
+
+</form>
+
+<div id="result" class="result"></div>
+
+</div>
+
+<script>
+function resetQuiz() {
+    document.getElementById("quizForm").reset();
+    document.getElementById("result").innerHTML = "";
+}
+
+function submitQuiz() {
+    let answers = {
+        q1:"b", q2:"a", q3:"b", q4:"b", q5:"b",
+        q6:"b", q7:"a", q8:"b", q9:"b", q10:"b"
+    };
+
+    let score = 0;
+    let output = "<h2>Murali's Score</h2>";
+
+    for (let q in answers) {
+        let selected = document.querySelector('input[name="'+q+'"]:checked');
+        if (selected && selected.value === answers[q]) {
+            score++;
+            output += "<p class='correct'>"+q+" Correct</p>";
+        } else {
+            output += "<p class='wrong'>"+q+" Wrong</p>";
+        }
+    }
+
+    output += "<h3>Total Score: "+score+"/10</h3>";
+    document.getElementById("result").innerHTML = output;
+}
+</script>
+
+</body>
+</html>
