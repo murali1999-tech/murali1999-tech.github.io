@@ -1,0 +1,139 @@
+<section>
+    <h2>Quiz - Test Your Knowledge</h2>
+
+```
+<form id="quizForm">
+    <div class="question">
+        <p><strong>1. Where was Prophet Muhammad born?</strong></p>
+        <label><input type="radio" name="q1" value="0"> Medina</label><br>
+        <label><input type="radio" name="q1" value="1"> Mecca</label><br>
+        <label><input type="radio" name="q1" value="0"> Baghdad</label><br>
+        <label><input type="radio" name="q1" value="0"> Damascus</label>
+    </div>
+
+    <div class="question">
+        <p><strong>2. In which year did the Hijrat take place?</strong></p>
+        <label><input type="radio" name="q2" value="1"> 622 CE</label><br>
+        <label><input type="radio" name="q2" value="0"> 570 CE</label><br>
+        <label><input type="radio" name="q2" value="0"> 632 CE</label><br>
+        <label><input type="radio" name="q2" value="0"> 750 CE</label>
+    </div>
+
+    <div class="question">
+        <p><strong>3. What is the holy book of Islam?</strong></p>
+        <label><input type="radio" name="q3" value="0"> Bible</label><br>
+        <label><input type="radio" name="q3" value="0"> Torah</label><br>
+        <label><input type="radio" name="q3" value="1"> Quran</label><br>
+        <label><input type="radio" name="q3" value="0"> Vedas</label>
+    </div>
+
+    <div class="question">
+        <p><strong>4. Which city became the capital of the Abbasid Empire?</strong></p>
+        <label><input type="radio" name="q4" value="0"> Mecca</label><br>
+        <label><input type="radio" name="q4" value="0"> Medina</label><br>
+        <label><input type="radio" name="q4" value="1"> Baghdad</label><br>
+        <label><input type="radio" name="q4" value="0"> Damascus</label>
+    </div>
+
+    <div class="question">
+        <p><strong>5. Who is known as the father of algebra?</strong></p>
+        <label><input type="radio" name="q5" value="0"> Ibn Sina</label><br>
+        <label><input type="radio" name="q5" value="1"> Al-Khwarizmi</label><br>
+        <label><input type="radio" name="q5" value="0"> Al-Biruni</label><br>
+        <label><input type="radio" name="q5" value="0"> Ibn Battuta</label>
+    </div>
+
+    <div class="question">
+        <p><strong>6. Which pillar of Islam means charity?</strong></p>
+        <label><input type="radio" name="q6" value="0"> Salat</label><br>
+        <label><input type="radio" name="q6" value="1"> Zakat</label><br>
+        <label><input type="radio" name="q6" value="0"> Sawm</label><br>
+        <label><input type="radio" name="q6" value="0"> Hajj</label>
+    </div>
+
+    <div class="question">
+        <p><strong>7. What was the famous learning centre in Baghdad called?</strong></p>
+        <label><input type="radio" name="q7" value="0"> Red Fort</label><br>
+        <label><input type="radio" name="q7" value="1"> House of Wisdom</label><br>
+        <label><input type="radio" name="q7" value="0"> Taj Mahal</label><br>
+        <label><input type="radio" name="q7" value="0"> Parliament House</label>
+    </div>
+
+    <div class="question">
+        <p><strong>8. Which language spread widely with Islam?</strong></p>
+        <label><input type="radio" name="q8" value="0"> Latin</label><br>
+        <label><input type="radio" name="q8" value="1"> Arabic</label><br>
+        <label><input type="radio" name="q8" value="0"> French</label><br>
+        <label><input type="radio" name="q8" value="0"> Sanskrit</label>
+    </div>
+
+    <div class="question">
+        <p><strong>9. What is the pilgrimage to Mecca called?</strong></p>
+        <label><input type="radio" name="q9" value="0"> Salat</label><br>
+        <label><input type="radio" name="q9" value="0"> Sawm</label><br>
+        <label><input type="radio" name="q9" value="1"> Hajj</label><br>
+        <label><input type="radio" name="q9" value="0"> Zakat</label>
+    </div>
+
+    <div class="question">
+        <p><strong>10. Which Mongol ruler destroyed Baghdad in 1258?</strong></p>
+        <label><input type="radio" name="q10" value="0"> Genghis Khan</label><br>
+        <label><input type="radio" name="q10" value="1"> Hulagu Khan</label><br>
+        <label><input type="radio" name="q10" value="0"> Timur</label><br>
+        <label><input type="radio" name="q10" value="0"> Babur</label>
+    </div>
+
+    <br>
+
+    <button type="button" onclick="calculateScore()">Submit</button>
+    <button type="reset">Reset</button>
+</form>
+
+<h3 id="result"></h3>
+```
+
+</section>
+
+<style>
+    .question {
+        background: #f9f9f9;
+        padding: 15px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        border-left: 5px solid #1976d2;
+    }
+
+    button {
+        background-color: #1976d2;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        margin-right: 10px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 1rem;
+    }
+
+    button:hover {
+        background-color: #0d47a1;
+    }
+
+    #result {
+        margin-top: 20px;
+        color: #0d47a1;
+    }
+</style>
+
+<script>
+    function calculateScore() {
+        let score = 0;
+        const answers = document.querySelectorAll('input[type="radio"]:checked');
+
+        answers.forEach((answer) => {
+            score += Number(answer.value);
+        });
+
+        document.getElementById("result").innerHTML =
+            "You scored " + score + " out of 10 marks.";
+    }
+</script>
