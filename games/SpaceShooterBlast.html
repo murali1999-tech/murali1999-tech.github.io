@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- SEO -->
+    <meta name="" content=" 
+">
+title should me more visible
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TXBXT26HKX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-TXBXT26HKX', { 'anonymize_ip': true });
+    </script>
+
+
+
+<nav>
+    <a href="/home.html">home</a>
+    <a href="/about.html">about</a>
+    <a href="/contact.html">contact us</a>
+    <a href="/privacy-policy.html">Privacy</a>
+</nav>
+
+    <!-- Ad Script -->
+    <script src="https://quge5.com/88/tag.min.js" data-zone="228362" async data-cfasync="false"></script>
+
+  <title>Simple Shooting Game</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: #111;
+      font-family: Arial, sans-serif;
+    }
+
+    canvas {
+      display: block;
+      background: #222;
+    }
+
+    #score {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      color: white;
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="score">Score: 0</div>
+<canvas id="gameCanvas"></canvas>
+
+<script>
+  const canvas = document.getElementById("gameCanvas");
+  const ctx = canvas.getContext("2d");
+
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  let score = 0;
+
+  const player = {
+    x: canvas.width / 2 - 25,
+    y: canvas.height - 80,
+    width: 50,
+    height: 50,
+    speed: 7
+  };
+
+  const bullets = [];
+  const enemies = [];
+
+  const keys = {};
+
+  document.addEventListener("keydown", (e) => {
+    keys[e.key] = true;
+
+    if (e.key === " ") {
+      bullets.push({
+        x: player.x + player.width / 2 - 3,
+        y: player.y,
+        width: 6,
+        height: 15,
+        speed: 10
+      });
+    }
+  });
+
+  document.addEventListener("keyup", (e) => {
+    keys[e.key] = false;
+  });
+
+  function spawnEnemy() {
+    enemies.push({
+      x: Math.random() * (canvas.width - 40),
+      y: -40,
+      width: 40,
+      height: 40,
+      speed: 2 + Math.random() * 3
+    });
+  }
+
+  setInterval(spawnEnemy, 1000);
+
+  function update() {
+    if (keys["ArrowLeft"] && player.x > 0) {
+      player.x -= player.speed;
+    }
+
+    if (keys["ArrowRight"] && player.x < canvas.width - player.width) {
+      player.x += player.speed;
+    }
+
+    bullets.forEach((bullet, index) => {
+      bullet.y -= bullet.speed;
+
+      if (bullet.y < 0) {
+        bullets.splice(index, 1);
+      }
+    });
+
+    enemies.forEach((enemy, eIndex) => {
+      enemy.y += enemy.speed;
+
+      if (enemy.y > canvas.height) {
+        enemies.splice(eIndex, 1);
+      }
+
+      bullets.forEach((bullet, bIndex) => {
+        if (
+          bullet.x < enemy.x + enemy.width &&
+          bullet.x + bullet.width > enemy.x &&
+          bullet.y < enemy.y + enemy.height &&
+          bullet.y + bullet.height > enemy.y
+        ) {
+          enemies.splice(eIndex, 1);
+          bullets.splice(bIndex, 1);
+          score++;
+          document.getElementById("score").innerText = "Score: " + score;
+        }
+      });
+    });
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = "lime";
+    ctx.fillRect(player.x, player.y, player.width, player.height);
+
+    ctx.fillStyle = "yellow";
+    bullets.forEach((bullet) => {
+      ctx.fillRect(bullet.x, bullet.y, bullet.width, bullet.height);
+    });
+
+    ctx.fillStyle = "red";
+    enemies.forEach((enemy) => {
+      ctx.fillRect(enemy.x, enemy.y, enemy.width, enemy.height);
+    });
+  }
+
+  function gameLoop() {
+    update();
+    draw();
+    requestAnimationFrame(gameLoop);
+  }
+
+  gameLoop();
+</script>
+
+</body>
+</html>
