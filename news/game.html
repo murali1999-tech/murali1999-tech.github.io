@@ -1,0 +1,125 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tap the Button Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    .game-box {
+      background: white;
+      max-width: 500px;
+      margin: auto;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    #tapButton {
+      padding: 20px 40px;
+      font-size: 24px;
+      border: none;
+      border-radius: 10px;
+      background: #007bff;
+      color: white;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    #tapButton:hover {
+      background: #0056b3;
+    }
+
+    .info {
+      font-size: 20px;
+      margin-top: 20px;
+    }
+
+    #startButton {
+      padding: 12px 25px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      background: green;
+      color: white;
+      cursor: pointer;
+    }
+
+    #startButton:hover {
+      background: darkgreen;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="game-box">
+    <h1>Tap the Button Game</h1>
+    <p>Click the button as many times as you can in 10 seconds!</p>
+
+    <button id="startButton">Start Game</button>
+
+    <div class="info">
+      <p>Time Left: <span id="time">10</span> sec</p>
+      <p>Score: <span id="score">0</span></p>
+    </div>
+
+    <button id="tapButton" disabled>Tap Me!</button>
+  </div>
+
+  <script>
+    let score = 0;
+    let timeLeft = 10;
+    let gameRunning = false;
+    let timer;
+
+    const startButton = document.getElementById("startButton");
+    const tapButton = document.getElementById("tapButton");
+    const scoreDisplay = document.getElementById("score");
+    const timeDisplay = document.getElementById("time");
+
+    startButton.addEventListener("click", () => {
+      if (gameRunning) return;
+
+      score = 0;
+      timeLeft = 10;
+      gameRunning = true;
+
+      scoreDisplay.textContent = score;
+      timeDisplay.textContent = timeLeft;
+      tapButton.disabled = false;
+
+      timer = setInterval(() => {
+        timeLeft--;
+        timeDisplay.textContent = timeLeft;
+
+        if (timeLeft <= 0) {
+          clearInterval(timer);
+          gameRunning = false;
+          tapButton.disabled = true;
+          alert("Game Over! Your score is " + score);
+        }
+      }, 1000);
+    });
+
+    tapButton.addEventListener("click", () => {
+      if (!gameRunning) return;
+
+      score++;
+      scoreDisplay.textContent = score;
+    });
+  </script>
+
+</body>
+</html>
+```
