@@ -1,0 +1,41 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- SEO --> <meta name="description" content="Download Daily Sloka Android app to read meaningful slokas every day with English and Telugu meanings. Explore peaceful and devotional content from Ramayana, Mahabharata, and Bhagavatam."> <meta name="keywords" content="Daily Sloka app, Telugu slokas, devotional app, Ramayana slokas, Mahabharata slokas, Bhagavatam slokas, Android devotional app, spiritual app India"> <meta name="author" content="Murali"> <title>Daily Sloka App – Read Telugu & English Slokas Every Day</title> <!-- Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=G-TXBXT26HKX"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-TXBXT26HKX', { 'anonymize_ip': true }); </script> <!-- Ad Script --> <script src="https://quge5.com/88/tag.min.js" data-zone="228362" async data-cfasync="false"></script> <style> body { font-family: Arial, sans-serif; margin: 0; background: #f8f8f8; color: #222; line-height: 1.7; } header { background: linear-gradient(90deg, #ff9933, #ffcc66); color: white; text-align: center; padding: 40px 20px; } header h1 { font-size: 42px; margin: 0; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); } nav { background: #222; padding: 12px; text-align: center; } nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; } .container { max-width: 1100px; margin: auto; padding: 20px; background: white; } .gallery { display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin: 25px 0; } .gallery img { width: 180px; height: auto; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.15); } .download-btn { display: inline-block; background: #ff6600; color: white; padding: 14px 24px; text-decoration: none; border-radius: 8px; font-size: 18px; margin-top: 20px; } .telegram-btn { display: inline-block; background: #0088cc; color: white; padding: 12px 20px; text-decoration: none; border-radius: 8px; margin-top: 15px; } .game-section { margin-top: 50px; text-align: center; background: #eef7e8; padding: 30px; border-radius: 15px; } #gameArea { width: 100%; max-width: 700px; height: 400px; margin: 20px auto; border: 3px solid #444; position: relative; overflow: hidden; background: linear-gradient(#87ceeb, #90ee90); } #basket { width: 80px; height: 40px; background: brown; position: absolute; bottom: 10px; left: 300px; border-radius: 10px; } .egg { width: 30px; height: 40px; background: white; border-radius: 50%; position: absolute; top: 0; border: 2px solid #ccc; } .info { font-size: 20px; margin: 10px; } button { padding: 10px 18px; font-size: 16px; border: none; border-radius: 8px; cursor: pointer; background: #ff6600; color: white; margin: 5px; } </style> </head> <body> <header> <h1>Daily Sloka App</h1> <p>Read Peaceful Slokas Every Day in English and Telugu</p> </header> <nav> <a href="/home.html">home</a> <a href="/about.html">about</a> <a href="/contact.html">contact us</a> <a href="/privacy-policy.html">Privacy</a> </nav> <div class="container"> <h2>About Daily Sloka</h2> <p> Daily Sloka is a simple Android app made for people who want to read and understand spiritual slokas every day. The app contains meaningful slokas inspired by Ramayana, Mahabharata, and Bhagavatam. Each sloka comes with English meaning and తెలుగు అర్థం so users can understand the message clearly. </p>
+<p>
+  The app is lightweight, fast, and easy to use. Users can copy slokas instantly, share them with friends and family, 
+  and build a daily habit of devotion and positivity. Daily Sloka is suitable for all age groups and does not collect personal data.
+</p>
+
+<div class="gallery">
+  <img src="1000120063.jpg" alt="Daily Sloka Screenshot 1">
+  <img src="1000120062.jpg" alt="Daily Sloka Screenshot 2">
+  <img src="1000120066.jpg" alt="Daily Sloka Screenshot 3">
+  <img src="1000120065.jpg" alt="Daily Sloka Screenshot 4">
+  <img src="1000120067.jpg" alt="Daily Sloka Screenshot 5">
+</div>
+
+<a class="download-btn" href="https://play.google.com/store/apps/details?id=com.murali.daily_sloka&pcampaignid=web_share" target="_blank">
+  Download Daily Sloka App
+</a>
+
+<br><br>
+
+<a class="telegram-btn" href="https://t.me/+FLml_YUqS-U1YThl" target="_blank">
+  Join Telegram Channel
+</a>
+
+<div class="game-section">
+  <h2>Egg Catcher Game</h2>
+  <p>Move the basket with left and right arrow keys. Catch as many eggs as possible in 1 minute. Speed increases over time.</p>
+
+  <div class="info">
+    Score: <span id="score">0</span> |
+    Time Left: <span id="time">60</span>s
+  </div>
+
+  <button onclick="startGame()">Start Game</button>
+  <button onclick="resetGame()">Reset</button>
+
+  <div id="gameArea">
+    <div id="basket"></div>
+  </div>
+</div>
+</div> <script> const basket = document.getElementById('basket'); const gameArea = document.getElementById('gameArea'); const scoreDisplay = document.getElementById('score'); const timeDisplay = document.getElementById('time'); let basketLeft = 300; let score = 0; let gameTime = 60; let eggSpeed = 3; let gameInterval; let timerInterval; document.addEventListener('keydown', function(e) { if (e.key === 'ArrowLeft' && basketLeft > 0) { basketLeft -= 20; } if (e.key === 'ArrowRight' && basketLeft < 620) { basketLeft += 20; } basket.style.left = basketLeft + 'px'; }); function createEgg() { const egg = document.createElement('div'); egg.classList.add('egg'); egg.style.left = Math.random() * 670 + 'px'; gameArea.appendChild(egg); let eggTop = 0; const fall = setInterval(() => { eggTop += eggSpeed; egg.style.top = eggTop + 'px'; const eggLeft = parseInt(egg.style.left); if ( eggTop > 340 && eggLeft > basketLeft - 20 && eggLeft < basketLeft + 80 ) { score++; scoreDisplay.textContent = score; egg.remove(); clearInterval(fall); } if (eggTop > 400) { egg.remove(); clearInterval(fall); } }, 20); } function startGame() { clearInterval(gameInterval); clearInterval(timerInterval); gameInterval = setInterval(() => { createEgg(); }, 800); timerInterval = setInterval(() => { gameTime--; timeDisplay.textContent = gameTime; if (gameTime % 10 === 0) { eggSpeed += 1; } if (gameTime <= 0) { clearInterval(gameInterval); clearInterval(timerInterval); } }, 1000); } function resetGame() { score = 0; gameTime = 60; eggSpeed = 3; scoreDisplay.textContent = score; timeDisplay.textContent = gameTime; document.querySelectorAll('.egg').forEach(egg => egg.remove()); } </script> </body> </html>
