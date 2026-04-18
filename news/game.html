@@ -2,122 +2,237 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tap the Button Game</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock Paper Scissors Game</title>
   <style>
     body {
+      margin: 0;
+      padding: 0;
       font-family: Arial, sans-serif;
-      background: #f4f4f4;
-      text-align: center;
-      padding: 50px 20px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
     }
 
-    .game-box {
-      background: white;
-      max-width: 500px;
-      margin: auto;
+    .game-container {
+      background: #fff;
+      width: 90%;
+      max-width: 700px;
+      border-radius: 20px;
       padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     }
 
     h1 {
       margin-bottom: 10px;
+      color: #333;
+      font-size: 36px;
     }
 
-    #tapButton {
-      padding: 20px 40px;
-      font-size: 24px;
-      border: none;
-      border-radius: 10px;
-      background: #007bff;
-      color: white;
+    .subtitle {
+      color: #777;
+      margin-bottom: 30px;
+    }
+
+    .choices {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+
+    .choice-btn {
+      background: #f7f7f7;
+      border: 3px solid transparent;
+      border-radius: 15px;
+      padding: 20px;
       cursor: pointer;
-      margin-top: 20px;
+      transition: 0.3s ease;
+      width: 140px;
     }
 
-    #tapButton:hover {
-      background: #0056b3;
+    .choice-btn:hover {
+      transform: translateY(-5px);
+      border-color: #667eea;
+      background: #eef1ff;
     }
 
-    .info {
-      font-size: 20px;
-      margin-top: 20px;
+    .choice-btn img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
     }
 
-    #startButton {
-      padding: 12px 25px;
+    .choice-btn p {
+      margin-top: 10px;
       font-size: 18px;
-      border: none;
-      border-radius: 8px;
-      background: green;
-      color: white;
-      cursor: pointer;
+      font-weight: bold;
+      color: #333;
     }
 
-    #startButton:hover {
-      background: darkgreen;
+    .result-box {
+      background: #f4f4f4;
+      border-radius: 15px;
+      padding: 20px;
+      margin-top: 20px;
+    }
+
+    .battle {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin: 20px 0;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .battle-item {
+      flex: 1;
+      min-width: 120px;
+    }
+
+    .battle-item img {
+      width: 90px;
+      height: 90px;
+    }
+
+    .vs {
+      font-size: 30px;
+      font-weight: bold;
+      color: #555;
+    }
+
+    #resultText {
+      font-size: 28px;
+      font-weight: bold;
+      margin-top: 20px;
+      color: #333;
+    }
+
+    .score-board {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 25px;
+      flex-wrap: wrap;
+    }
+
+    .score-card {
+      background: #667eea;
+      color: white;
+      padding: 15px 25px;
+      border-radius: 12px;
+      min-width: 120px;
+    }
+
+    .score-card h2 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .score-card p {
+      margin: 10px 0 0;
+      font-size: 28px;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
 
-  <div class="game-box">
-    <h1>Tap the Button Game</h1>
-    <p>Click the button as many times as you can in 10 seconds!</p>
+  <div class="game-container">
+    <h1>Rock Paper Scissors</h1>
+    <p class="subtitle">Choose your move and beat the computer!</p>
 
-    <button id="startButton">Start Game</button>
+    <div class="choices">
+      <div class="choice-btn" onclick="playGame('rock')">
+        <img src="https://cdn-icons-png.flaticon.com/512/616/616494.png" alt="Rock">
+        <p>Rock</p>
+      </div>
 
-    <div class="info">
-      <p>Time Left: <span id="time">10</span> sec</p>
-      <p>Score: <span id="score">0</span></p>
+      <div class="choice-btn" onclick="playGame('paper')">
+        <img src="https://cdn-icons-png.flaticon.com/512/2541/2541988.png" alt="Paper">
+        <p>Paper</p>
+      </div>
+
+      <div class="choice-btn" onclick="playGame('scissors')">
+        <img src="https://cdn-icons-png.flaticon.com/512/2907/2907253.png" alt="Scissors">
+        <p>Scissors</p>
+      </div>
     </div>
 
-    <button id="tapButton" disabled>Tap Me!</button>
+    <div class="result-box">
+      <div class="battle">
+        <div class="battle-item">
+          <h3>You</h3>
+          <img id="userChoiceImg" src="https://cdn-icons-png.flaticon.com/512/616/616494.png" alt="">
+        </div>
+
+        <div class="vs">VS</div>
+
+        <div class="battle-item">
+          <h3>Computer</h3>
+          <img id="computerChoiceImg" src="https://cdn-icons-png.flaticon.com/512/616/616494.png" alt="">
+        </div>
+      </div>
+
+      <div id="resultText">Make your move!</div>
+    </div>
+
+    <div class="score-board">
+      <div class="score-card">
+        <h2>Your Score</h2>
+        <p id="userScore">0</p>
+      </div>
+
+      <div class="score-card">
+        <h2>Computer Score</h2>
+        <p id="computerScore">0</p>
+      </div>
+    </div>
   </div>
 
   <script>
-    let score = 0;
-    let timeLeft = 10;
-    let gameRunning = false;
-    let timer;
+    let userScore = 0;
+    let computerScore = 0;
 
-    const startButton = document.getElementById("startButton");
-    const tapButton = document.getElementById("tapButton");
-    const scoreDisplay = document.getElementById("score");
-    const timeDisplay = document.getElementById("time");
+    const images = {
+      rock: "https://cdn-icons-png.flaticon.com/512/616/616494.png",
+      paper: "https://cdn-icons-png.flaticon.com/512/2541/2541988.png",
+      scissors: "https://cdn-icons-png.flaticon.com/512/2907/2907253.png"
+    };
 
-    startButton.addEventListener("click", () => {
-      if (gameRunning) return;
+    function playGame(userChoice) {
+      const choices = ["rock", "paper", "scissors"];
+      const computerChoice = choices[Math.floor(Math.random() * choices.length)];
 
-      score = 0;
-      timeLeft = 10;
-      gameRunning = true;
+      document.getElementById("userChoiceImg").src = images[userChoice];
+      document.getElementById("computerChoiceImg").src = images[computerChoice];
 
-      scoreDisplay.textContent = score;
-      timeDisplay.textContent = timeLeft;
-      tapButton.disabled = false;
+      let result = "";
 
-      timer = setInterval(() => {
-        timeLeft--;
-        timeDisplay.textContent = timeLeft;
+      if (userChoice === computerChoice) {
+        result = "It's a Draw!";
+      } else if (
+        (userChoice === "rock" && computerChoice === "scissors") ||
+        (userChoice === "paper" && computerChoice === "rock") ||
+        (userChoice === "scissors" && computerChoice === "paper")
+      ) {
+        result = "You Win!";
+        userScore++;
+      } else {
+        result = "Computer Wins!";
+        computerScore++;
+      }
 
-        if (timeLeft <= 0) {
-          clearInterval(timer);
-          gameRunning = false;
-          tapButton.disabled = true;
-          alert("Game Over! Your score is " + score);
-        }
-      }, 1000);
-    });
-
-    tapButton.addEventListener("click", () => {
-      if (!gameRunning) return;
-
-      score++;
-      scoreDisplay.textContent = score;
-    });
+      document.getElementById("resultText").innerText = result;
+      document.getElementById("userScore").innerText = userScore;
+      document.getElementById("computerScore").innerText = computerScore;
+    }
   </script>
 
 </body>
