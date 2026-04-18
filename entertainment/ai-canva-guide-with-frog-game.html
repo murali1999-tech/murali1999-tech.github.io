@@ -312,7 +312,7 @@
       const frogLeft = frog.getBoundingClientRect().left;
 
       if (obstacleLeft < frogLeft + 60 && obstacleLeft > frogLeft && frogBottom < 50) {
-        alert('Game Over! Your score was ' + score);
+        document.querySelector('.score').innerHTML = 'Game Over! Final Score: ' + score;
         score = 0;
         scoreDisplay.innerText = score;
       } else {
