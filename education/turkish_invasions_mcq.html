@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Turkish Invasions MCQ Quiz</title>
+
+<style>
+    body{
+        font-family: Arial, sans-serif;
+        background:#f2f4f8;
+        margin:0;
+        padding:0;
+    }
+
+    header{
+        background:#2c3e50;
+        color:white;
+        text-align:center;
+        padding:15px;
+    }
+
+    .container{
+        max-width:900px;
+        margin:20px auto;
+        background:white;
+        padding:20px;
+        border-radius:10px;
+        box-shadow:0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    h2{
+        color:#2c3e50;
+    }
+
+    .question{
+        margin-bottom:15px;
+        padding:10px;
+        border-bottom:1px solid #ddd;
+    }
+
+    button{
+        padding:10px 15px;
+        margin:10px 5px;
+        border:none;
+        border-radius:5px;
+        cursor:pointer;
+        font-size:16px;
+    }
+
+    .submit{
+        background:#27ae60;
+        color:white;
+    }
+
+    .reset{
+        background:#e74c3c;
+        color:white;
+    }
+
+    .result{
+        font-size:18px;
+        margin-top:15px;
+        font-weight:bold;
+    }
+
+    .answers{
+        margin-top:15px;
+        background:#f9f9f9;
+        padding:10px;
+        border-radius:8px;
+    }
+
+    footer{
+        text-align:center;
+        margin-top:20px;
+        padding:10px;
+        background:#2c3e50;
+        color:white;
+    }
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🏰 Turkish Invasions MCQ Quiz</h1>
+</header>
+
+<div class="container">
+
+<form id="quizForm">
+
+<!-- Q1 -->
+<div class="question">
+<p>1. Who invaded India 17 times?</p>
+<input type="radio" name="q1" value="A"> Muhammad Ghori<br>
+<input type="radio" name="q1" value="B"> Mahmud of Ghazni<br>
+<input type="radio" name="q1" value="C"> Qutb-ud-din Aibak<br>
+</div>
+
+<!-- Q2 -->
+<div class="question">
+<p>2. Mahmud of Ghazni mainly came to India for?</p>
+<input type="radio" name="q2" value="A"> Rule India<br>
+<input type="radio" name="q2" value="B"> Spread education<br>
+<input type="radio" name="q2" value="C"> Wealth and loot<br>
+</div>
+
+<!-- Q3 -->
+<div class="question">
+<p>3. Which temple was attacked by Mahmud of Ghazni?</p>
+<input type="radio" name="q3" value="A"> Meenakshi Temple<br>
+<input type="radio" name="q3" value="B"> Somnath Temple<br>
+<input type="radio" name="q3" value="C"> Konark Temple<br>
+</div>
+
+<!-- Q4 -->
+<div class="question">
+<p>4. Muhammad Ghori defeated whom in 1192?</p>
+<input type="radio" name="q4" value="A"> Akbar<br>
+<input type="radio" name="q4" value="B"> Prithviraj Chauhan<br>
+<input type="radio" name="q4" value="C"> Rana Pratap<br>
+</div>
+
+<!-- Q5 -->
+<div class="question">
+<p>5. First Battle of Tarain was fought in?</p>
+<input type="radio" name="q5" value="A"> 1191<br>
+<input type="radio" name="q5" value="B"> 1206<br>
+<input type="radio" name="q5" value="C"> 1001<br>
+</div>
+
+<!-- Q6 -->
+<div class="question">
+<p>6. Who started the Delhi Sultanate?</p>
+<input type="radio" name="q6" value="A"> Akbar<br>
+<input type="radio" name="q6" value="B"> Qutb-ud-din Aibak<br>
+<input type="radio" name="q6" value="C"> Babur<br>
+</div>
+
+<!-- Q7 -->
+<div class="question">
+<p>7. Turks originally came from?</p>
+<input type="radio" name="q7" value="A"> Europe<br>
+<input type="radio" name="q7" value="B"> Central Asia<br>
+<input type="radio" name="q7" value="C"> Africa<br>
+</div>
+
+<!-- Q8 -->
+<div class="question">
+<p>8. Second Battle of Tarain was won by?</p>
+<input type="radio" name="q8" value="A"> Prithviraj Chauhan<br>
+<input type="radio" name="q8" value="B"> Muhammad Ghori<br>
+<input type="radio" name="q8" value="C"> Ashoka<br>
+</div>
+
+<!-- Q9 -->
+<div class="question">
+<p>9. Mahmud of Ghazni was mainly a?</p>
+<input type="radio" name="q9" value="A"> Trader<br>
+<input type="radio" name="q9" value="B"> Raider<br>
+<input type="radio" name="q9" value="C"> Teacher<br>
+</div>
+
+<!-- Q10 -->
+<div class="question">
+<p>10. Delhi Sultanate began in?</p>
+<input type="radio" name="q10" value="A"> 1206 AD<br>
+<input type="radio" name="q10" value="B"> 1000 AD<br>
+<input type="radio" name="q10" value="C"> 1500 AD<br>
+</div>
+
+<button type="button" class="submit" onclick="submitQuiz()">Submit</button>
+<button type="reset" class="reset" onclick="resetQuiz()">Reset</button>
+
+</form>
+
+<div class="result" id="result"></div>
+
+<div class="answers" id="answers"></div>
+
+</div>
+
+<footer>
+    Prepared by Murali
+</footer>
+
+<script>
+function submitQuiz(){
+
+    let score = 0;
+
+    let answers = {
+        q1:"B",
+        q2:"C",
+        q3:"B",
+        q4:"B",
+        q5:"A",
+        q6:"B",
+        q7:"B",
+        q8:"B",
+        q9:"B",
+        q10:"A"
+    };
+
+    for(let i=1;i<=10;i++){
+        let q = document.querySelector('input[name="q'+i+'"]:checked');
+        if(q && q.value === answers["q"+i]){
+            score++;
+        }
+    }
+
+    document.getElementById("result").innerHTML =
+        "🎯 Your Score: " + score + " / 10";
+
+    let answerText = `
+        <h3>✔ Correct Answers</h3>
+        <p>1. Mahmud of Ghazni</p>
+        <p>2. Wealth and loot</p>
+        <p>3. Somnath Temple</p>
+        <p>4. Prithviraj Chauhan</p>
+        <p>5. 1191</p>
+        <p>6. Qutb-ud-din Aibak</p>
+        <p>7. Central Asia</p>
+        <p>8. Muhammad Ghori</p>
+        <p>9. Raider</p>
+        <p>10. 1206 AD</p>
+    `;
+
+    document.getElementById("answers").innerHTML = answerText;
+}
+
+function resetQuiz(){
+    document.getElementById("result").innerHTML = "";
+    document.getElementById("answers").innerHTML = "";
+}
+</script>
+
+</body>
+</html>
