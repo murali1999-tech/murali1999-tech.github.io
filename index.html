@@ -154,39 +154,38 @@ const feeds = [
 ];
 
 // Load news
-async function loadNews(){
+async function loadNews() {
 
     const container = document.getElementById("news-container");
     container.innerHTML = "Loading latest news...";
 
     try {
+        const res = await fetch("https://YOUR-BACKEND-URL/news");
+        const json = await res.json();
 
-        let all = [];
+        const all = json.data;
 
-        // Fetch RSS safely
-        // Fetch RSS safely
-for (let feed of feeds) {
+        container.innerHTML = "";
 
-    try {
-        const url = "https://api.allorigins.win/get?url=" + encodeURIComponent(feed);
+        all.forEach(item => {
+            let div = document.createElement("div");
+            div.className = "card";
 
-        const res = await fetch(url);
-        const data = await res.json();
+            div.innerHTML = `
+                <a href="${item.link}" target="_blank">${item.title}</a>
+                <p>${item.pubDate ? item.pubDate.substring(0,16) : ""}</p>
+            `;
 
-        const xml = new DOMParser().parseFromString(data.contents, "text/xml");
-
-        xml.querySelectorAll("item").forEach(item => {
-            all.push({
-                title: item.querySelector("title")?.textContent || "No title",
-                link: item.querySelector("link")?.textContent || "#",
-                pubDate: item.querySelector("pubDate")?.textContent || ""
-            });
+            container.appendChild(div);
         });
 
     } catch (err) {
-        console.log("Feed error:", err);
+        container.innerHTML = "⚠️ News server not responding";
     }
 }
+
+loadNews();
+setInterval(loadNews, 600000);
 
         if (all.length === 0) {
             container.innerHTML = "⚠️ No news loaded";
