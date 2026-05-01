@@ -7,6 +7,8 @@ const Parser = require("rss-parser");
 const app = express();
 const parser = new Parser();
 
+const PORT = process.env.PORT || 5173;
+
 app.use(cors());
 
 // RSS feeds
@@ -63,9 +65,10 @@ app.get("/api/news", (req, res) => {
   });
 });
 
-// Start server
-app.listen(5173, () => {
-  console.log("🚀 http://localhost:5173");
+// Start server (ONLY ONCE)
+app.listen(PORT, () => {
+  console.log("🚀 Server running on port " + PORT);
+
   updateNews();
   setInterval(updateNews, 5 * 60 * 1000);
 });
