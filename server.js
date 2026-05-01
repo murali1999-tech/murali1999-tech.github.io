@@ -53,12 +53,12 @@ async function updateNews() {
   console.log("✅ News updated:", cache.length);
 }
 
-// Home route
+// ✅ Root route (ONLY ONCE)
 app.get("/", (req, res) => {
   res.send("🚀 News API is running");
 });
 
-// API route
+// ✅ API route (ONLY ONCE)
 app.get("/api/news", (req, res) => {
   if (cache.length === 0) {
     return res.json({ message: "⏳ Loading news, please wait..." });
