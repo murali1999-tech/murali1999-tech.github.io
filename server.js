@@ -7,9 +7,17 @@ const Parser = require("rss-parser");
 const app = express();
 const parser = new Parser();
 
-const PORT = process.env.PORT || 5173;
+// ✅ Render handles PORT automatically
+const PORT = process.env.PORT || 10000;
 
-app.use(cors());
+app.use(cors({
+  origin: "*"
+}));
+
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.url}`);
+  next();
+});
 
 // RSS feeds
 const feeds = [
@@ -25,12 +33,14 @@ let lastUpdated = 0;
 async function updateNews() {
   console.log("🔄 Fetching news...");
 
-  let all = [];
+  try {
+    const results = await Promise.all(
+      feeds.map(feed => parser.parseURL(feed))
+    );
 
-  for (let feed of feeds) {
-    try {
-      const data = await parser.parseURL(feed);
+    let all = [];
 
+    results.forEach(data => {
       data.items.forEach(item => {
         all.push({
           title: item.title,
@@ -39,36 +49,44 @@ async function updateNews() {
           source: data.title
         });
       });
+    });
 
-    } catch (err) {
-      console.log("❌ Feed error:", err.message);
-    }
+    all.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
+
+    cache = all.slice(0, 20);
+    lastUpdated = Date.now();
+
+    console.log("✅ News updated:", cache.length);
+
+  } catch (err) {
+    console.log("❌ Fetch error:", err.message);
   }
-
-  all.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
-
-  cache = all.slice(0, 20);
-  lastUpdated = Date.now();
-
-  console.log("✅ News updated:", cache.length);
 }
 
 // Routes
 app.get("/", (req, res) => {
-  res.send("📰 News API Running ✅");
+  res.send("📰 News API Running on Render ✅");
 });
 
 app.get("/api/news", (req, res) => {
+  if (!cache.length) {
+    return res.status(503).json({
+      message: "News not ready yet",
+      updated: lastUpdated,
+      data: []
+    });
+  }
+
   res.json({
     updated: lastUpdated,
     data: cache
   });
 });
 
-// Start server (ONLY ONCE)
-app.listen(PORT, () => {
+// Start server
+app.listen(PORT, async () => {
   console.log("🚀 Server running on port " + PORT);
 
-  updateNews();
+  await updateNews();
   setInterval(updateNews, 5 * 60 * 1000);
 });
