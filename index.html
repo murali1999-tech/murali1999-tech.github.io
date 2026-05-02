@@ -154,7 +154,7 @@ async function loadNews() {
     container.innerHTML = "Loading latest news...";
 
     try {
-        const res = await fetch("http://localhost:5173/api/news");
+        const res = await fetch("https://murali1999-tech-github-io-1.onrender.com/api/news");
         const json = await res.json();
 
         const all = json.data || [];
