@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Duck Hunter Game</title>
+<title>Duck Hunter Shooting Game</title>
 <style>
 
 *{
@@ -16,6 +16,7 @@ body{
     overflow:hidden;
     font-family:Arial,sans-serif;
     background:linear-gradient(to bottom,#4fc3f7,#81d4fa,#b3e5fc);
+    cursor:crosshair;
 }
 
 #gameArea{
@@ -49,12 +50,39 @@ body{
     z-index:1000;
 }
 
+#hunter{
+    position:absolute;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:90px;
+    z-index:500;
+    transition:left 0.05s linear;
+}
+
+.duck{
+    position:absolute;
+    font-size:60px;
+    user-select:none;
+    cursor:pointer;
+}
+
+.bullet{
+    position:absolute;
+    width:12px;
+    height:12px;
+    background:yellow;
+    border-radius:50%;
+    box-shadow:0 0 15px yellow;
+    z-index:700;
+}
+
 #gameOver{
     position:absolute;
     top:50%;
     left:50%;
     transform:translate(-50%,-50%);
-    background:rgba(0,0,0,0.85);
+    background:rgba(0,0,0,0.9);
     color:white;
     padding:40px;
     border-radius:15px;
@@ -85,18 +113,6 @@ body{
     background:#00e676;
 }
 
-.duck{
-    position:absolute;
-    font-size:60px;
-    cursor:pointer;
-    user-select:none;
-    transition:transform 0.1s;
-}
-
-.duck:active{
-    transform:scale(0.9);
-}
-
 #instructions{
     position:absolute;
     bottom:15px;
@@ -122,6 +138,10 @@ body{
         font-size:50px;
     }
 
+    #hunter{
+        font-size:70px;
+    }
+
     #gameOver h1{
         font-size:30px;
     }
@@ -139,20 +159,25 @@ Score: <span id="score">0</span>
 Time: <span id="time">60</span>s
 </div>
 <div id="instructions">
-Tap or Click the Ducks to Score Points
+Move Mouse or Finger to Aim • Tap or Click to Shoot Ducks
+</div>
+<div id="hunter">
+🧍🔫
 </div>
 <div id="gameOver">
 <h1>Game Over</h1>
-<p>Your Final Score:</p>
+<p>Your Final Score</p>
 <h2 id="finalScore">0</h2>
 <button onclick="restartGame()">
-Play Again
+Restart Game
 </button>
 </div>
 </div>
 <script>
 
 const gameArea = document.getElementById("gameArea");
+
+const hunter = document.getElementById("hunter");
 
 const scoreElement = document.getElementById("score");
 
@@ -168,6 +193,18 @@ let timeLeft = 60;
 
 let gameRunning = true;
 
+document.addEventListener("mousemove", function(e){
+
+    hunter.style.left = e.clientX + "px";
+
+});
+
+document.addEventListener("touchmove", function(e){
+
+    hunter.style.left = e.touches[0].clientX + "px";
+
+});
+
 function createDuck(){
 
     if(!gameRunning){
@@ -180,7 +217,7 @@ function createDuck(){
 
     duck.innerHTML = "🦆";
 
-    let startY = Math.random() * (window.innerHeight - 150);
+    let startY = Math.random() * (window.innerHeight - 250);
 
     duck.style.left = "-100px";
 
@@ -188,7 +225,7 @@ function createDuck(){
 
     gameArea.appendChild(duck);
 
-    let speed = Math.random() * 4 + 3;
+    let speed = Math.random() * 4 + 4;
 
     let posX = -100;
 
@@ -200,7 +237,7 @@ function createDuck(){
 
         duck.style.left = posX + "px";
 
-        duck.style.top = (startY + Math.sin(posX / 40) * 40 * direction) + "px";
+        duck.style.top = (startY + Math.sin(posX / 40) * 35 * direction) + "px";
 
         if(posX > window.innerWidth + 100){
 
@@ -212,25 +249,79 @@ function createDuck(){
 
     },20);
 
-    duck.addEventListener("click", function(){
+    duck.dataset.moveDuck = moveDuck;
 
-        score++;
+}
 
-        scoreElement.innerText = score;
+function shoot(x,y){
 
-        duck.innerHTML = "💥";
+    if(!gameRunning){
+        return;
+    }
 
-        clearInterval(moveDuck);
+    const bullet = document.createElement("div");
 
-        setTimeout(function(){
+    bullet.classList.add("bullet");
 
-            duck.remove();
+    bullet.style.left = x + "px";
 
-        },200);
+    bullet.style.top = y + "px";
+
+    gameArea.appendChild(bullet);
+
+    setTimeout(function(){
+
+        bullet.remove();
+
+    },200);
+
+    const ducks = document.querySelectorAll(".duck");
+
+    ducks.forEach(function(duck){
+
+        const rect = duck.getBoundingClientRect();
+
+        if(
+            x > rect.left &&
+            x < rect.right &&
+            y > rect.top &&
+            y < rect.bottom
+        ){
+
+            score++;
+
+            scoreElement.innerText = score;
+
+            duck.innerHTML = "💥";
+
+            clearInterval(duck.dataset.moveDuck);
+
+            setTimeout(function(){
+
+                duck.remove();
+
+            },200);
+
+        }
 
     });
 
 }
+
+document.addEventListener("click", function(e){
+
+    shoot(e.clientX,e.clientY);
+
+});
+
+document.addEventListener("touchstart", function(e){
+
+    shoot(
+        e.touches[0].clientX,
+        e.touches[0].clientY
+    );
+
+});
 
 let duckSpawner = setInterval(function(){
 
@@ -260,12 +351,6 @@ function endGame(){
 
     clearInterval(duckSpawner);
 
-    document.querySelectorAll(".duck").forEach(function(duck){
-
-        duck.remove();
-
-    });
-
     finalScoreElement.innerText = score;
 
     gameOverScreen.style.display = "block";
@@ -273,6 +358,12 @@ function endGame(){
 }
 
 function restartGame(){
+
+    document.querySelectorAll(".duck").forEach(function(duck){
+
+        duck.remove();
+
+    });
 
     score = 0;
 
