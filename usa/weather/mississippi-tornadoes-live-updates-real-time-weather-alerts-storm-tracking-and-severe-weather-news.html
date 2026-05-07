@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>    
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- SEO -->
+<meta name="description" content="Mississippi tornadoes live updates, severe weather alerts, storm tracking, tornado warnings, emergency preparedness, real time weather monitoring, and disaster safety information.">
+<meta name="keywords" content="Mississippi tornadoes, tornado warnings, live weather updates, severe storms, tornado tracker, emergency weather alerts, real time storm data">
+<meta name="author" content="Murali">
+<meta name="robots" content="index, follow">
+<title>Mississippi Tornadoes Live Updates | Real Time Weather Alerts & Storm Tracking</title>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TXBXT26HKX"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+
+function gtag(){
+    dataLayer.push(arguments);
+}
+
+gtag('js', new Date());
+
+gtag('config', 'G-TXBXT26HKX', {
+    'anonymize_ip': true
+});
+</script>
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    background:#0d1117;
+    color:#f5f5f5;
+    line-height:1.8;
+}
+
+header{
+    background:linear-gradient(135deg,#4a0000,#7a0000,#b30000);
+    padding:80px 20px;
+    text-align:center;
+}
+
+header h1{
+    font-size:3rem;
+    color:#ffffff;
+    margin-bottom:20px;
+    font-weight:bold;
+}
+
+header p{
+    max-width:950px;
+    margin:auto;
+    font-size:1.1rem;
+    color:#ffe5e5;
+}
+
+nav{
+    background:#111827;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    padding:15px;
+    position:sticky;
+    top:0;
+    z-index:999;
+}
+
+nav a{
+    color:#ffffff;
+    text-decoration:none;
+    margin:10px 15px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#4fc3f7;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:30px 20px;
+}
+
+.card{
+    background:#161b22;
+    padding:30px;
+    margin-bottom:25px;
+    border-radius:15px;
+    box-shadow:0 0 15px rgba(0,0,0,0.35);
+}
+
+h2{
+    color:#58a6ff;
+    margin-bottom:18px;
+    font-size:2rem;
+}
+
+p{
+    margin-bottom:16px;
+}
+
+ul{
+    margin-left:20px;
+    margin-bottom:15px;
+}
+
+li{
+    margin-bottom:10px;
+}
+
+.live-alert{
+    background:#0f172a;
+    border:2px solid #ff4d4d;
+    padding:25px;
+    border-radius:12px;
+    text-align:center;
+    margin-top:20px;
+}
+
+.alert-status{
+    font-size:2.4rem;
+    color:#ff4d4d;
+    font-weight:bold;
+    margin:15px 0;
+}
+
+.weather-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:20px;
+    margin-top:20px;
+}
+
+.weather-box{
+    background:#0b1220;
+    border:1px solid #333;
+    padding:20px;
+    border-radius:10px;
+    text-align:center;
+}
+
+.weather-box h3{
+    color:#58a6ff;
+    margin-bottom:10px;
+}
+
+.weather-box p{
+    font-size:1.4rem;
+    color:#00ff99;
+    font-weight:bold;
+}
+
+.buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+    margin-top:20px;
+}
+
+.btn{
+    display:inline-block;
+    padding:12px 20px;
+    background:#0077ff;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#005ad1;
+    transform:scale(1.05);
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+
+th, td{
+    border:1px solid #333;
+    padding:14px;
+    text-align:center;
+}
+
+th{
+    background:#1f2937;
+    color:#58a6ff;
+}
+
+tr:nth-child(even){
+    background:#111827;
+}
+
+footer{
+    background:#111827;
+    text-align:center;
+    padding:30px 20px;
+    margin-top:30px;
+}
+
+footer p{
+    color:#cccccc;
+}
+
+@media(max-width:768px){
+
+    header h1{
+        font-size:2.2rem;
+    }
+
+    h2{
+        font-size:1.5rem;
+    }
+
+    nav{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .btn{
+        width:100%;
+        text-align:center;
+    }
+
+    .alert-status{
+        font-size:1.8rem;
+    }
+
+    table{
+        display:block;
+        overflow-x:auto;
+        white-space:nowrap;
+    }
+
+}
+
+</style>
+</head>
+<body>
+<header>
+<h1>Mississippi Tornadoes Live Updates</h1>
+<p>
+Severe weather conditions and tornado outbreaks in Mississippi continue attracting national attention. 
+People across the United States are searching for real time tornado alerts, storm tracking information, 
+weather radar updates, emergency preparedness guides, and live weather warnings. Tornado activity can develop rapidly, 
+making continuous monitoring extremely important during severe weather conditions.
+</p>
+</header>
+<nav>
+<a href="/home.html">home</a>
+<a href="/about.html">about</a>
+<a href="/contact.html">contact us</a>
+<a href="/privacy-policy.html">Privacy</a>
+</nav>
+<div class="container">
+<div class="card">
+<h2>Real Time Tornado Alert Status</h2>
+<p>
+The following section simulates live weather alert updates using JavaScript-based real time data refresh effects. 
+Users should always follow official emergency weather services for accurate tornado warnings and safety information.
+</p>
+<div class="live-alert">
+<h3>Current Weather Alert</h3>
+<div class="alert-status" id="alertStatus">
+Severe Weather Monitoring Active
+</div>
+<p id="lastUpdated">
+Updated Just Now
+</p>
+</div>
+<div class="weather-grid">
+<div class="weather-box">
+<h3>Wind Speed</h3>
+<p id="windSpeed">78 mph</p>
+</div>
+<div class="weather-box">
+<h3>Storm Intensity</h3>
+<p id="stormIntensity">High</p>
+</div>
+<div class="weather-box">
+<h3>Lightning Activity</h3>
+<p id="lightning">Frequent</p>
+</div>
+<div class="weather-box">
+<h3>Rainfall</h3>
+<p id="rainfall">Heavy</p>
+</div>
+</div>
+</div>
+<div class="card">
+<h2>Mississippi Tornado Weather Conditions</h2>
+<p>
+Mississippi is part of a region that frequently experiences strong thunderstorms, tornadoes, and severe weather systems. 
+Warm temperatures, atmospheric instability, and storm fronts can create dangerous tornado conditions during storm seasons.
+</p>
+<ul>
+<li>Strong thunderstorm systems</li>
+<li>Rapidly changing weather conditions</li>
+<li>Emergency weather alerts</li>
+<li>High wind speeds</li>
+<li>Heavy rainfall and lightning</li>
+</ul>
+<p>
+Meteorologists continuously monitor weather radar systems and atmospheric conditions to issue warnings quickly when tornado risks increase.
+</p>
+</div>
+<div class="card">
+<h2>Tornado Safety Tips</h2>
+<p>
+During tornado warnings, safety preparation is extremely important. Residents are advised to follow official emergency instructions immediately.
+</p>
+<table>
+<tr>
+<th>Safety Action</th>
+<th>Importance</th>
+</tr>
+<tr>
+<td>Move to Safe Shelter</td>
+<td>Very Important</td>
+</tr>
+<tr>
+<td>Monitor Weather Alerts</td>
+<td>Critical</td>
+</tr>
+<tr>
+<td>Avoid Windows</td>
+<td>Important</td>
+</tr>
+<tr>
+<td>Keep Emergency Supplies</td>
+<td>Recommended</td>
+</tr>
+<tr>
+<td>Stay Indoors</td>
+<td>Essential</td>
+</tr>
+</table>
+<p>
+Emergency preparedness can significantly improve safety during severe weather situations.
+</p>
+</div>
+<div class="card">
+<h2>Why Tornado News Trends Online</h2>
+<p>
+Severe weather events become major trending topics because they affect communities, transportation, public safety, and emergency services. 
+People actively search for:
+</p>
+<ul>
+<li>Mississippi tornado warnings</li>
+<li>Live weather radar</li>
+<li>Storm tracking updates</li>
+<li>Emergency shelter information</li>
+<li>Weather forecast updates</li>
+<li>Tornado safety advice</li>
+</ul>
+<p>
+Weather websites, news channels, and emergency agencies provide continuous updates during severe storm situations.
+</p>
+</div>
+<div class="card">
+<h2>Useful Weather & Emergency Links</h2>
+<div class="buttons">
+<a class="btn" href="https://www.weather.gov/" target="_blank">
+National Weather Service
+</a>
+<a class="btn" href="https://www.noaa.gov/" target="_blank">
+NOAA
+</a>
+<a class="btn" href="https://www.accuweather.com/" target="_blank">
+AccuWeather
+</a>
+<a class="btn" href="https://www.weather.com/" target="_blank">
+Weather.com
+</a>
+<a class="btn" href="https://t.me/+FLml_YUqS-U1YThl" target="_blank">
+Join Telegram Group
+</a>
+<a class="btn" href="https://t.me/testing_android" target="_blank">
+Android Testing Channel
+</a>
+</div>
+</div>
+<div class="card">
+<h2>Recommended Android Apps</h2>
+<p>
+Explore useful Android applications available on Google Play Store.
+</p>
+<div class="buttons">
+<a class="btn" href="https://play.google.com/store/apps/details?id=com.murali.daily_sloka&pcampaignid=web_share" target="_blank">
+Daily Sloka App
+</a>
+<a class="btn" href="https://play.google.com/store/apps/details?id=com.murali.bank_job_trainer&pcampaignid=web_share" target="_blank">
+Bank Job Trainer App
+</a>
+</div>
+</div>
+</div>
+<footer>
+<p>
+Mississippi Tornadoes Live Updates | Real Time Severe Weather Alerts and Storm Tracking
+</p>
+</footer>
+<script>
+
+document.addEventListener("DOMContentLoaded", function(){
+
+    const cards = document.querySelectorAll(".card");
+
+    cards.forEach((card,index)=>{
+
+        card.style.opacity = "0";
+        card.style.transform = "translateY(40px)";
+        card.style.transition = "all 0.8s ease";
+
+        setTimeout(function(){
+
+            card.style.opacity = "1";
+            card.style.transform = "translateY(0)";
+
+        }, index * 180);
+
+    });
+
+    const alerts = [
+        "Severe Weather Monitoring Active",
+        "Tornado Watch Issued",
+        "Thunderstorm Activity Increasing",
+        "Emergency Weather Tracking",
+        "Storm Conditions Updating"
+    ];
+
+    let currentAlert = 0;
+
+    setInterval(function(){
+
+        currentAlert++;
+
+        if(currentAlert >= alerts.length){
+            currentAlert = 0;
+        }
+
+        document.getElementById("alertStatus").innerText = alerts[currentAlert];
+
+        let wind = Math.floor(Math.random() * 40) + 60;
+        document.getElementById("windSpeed").innerText = wind + " mph";
+
+        const intensities = ["Moderate","High","Severe","Extreme"];
+        document.getElementById("stormIntensity").innerText =
+            intensities[Math.floor(Math.random() * intensities.length)];
+
+        const lightningLevels = ["Low","Moderate","Frequent","Intense"];
+        document.getElementById("lightning").innerText =
+            lightningLevels[Math.floor(Math.random() * lightningLevels.length)];
+
+        const rainfallLevels = ["Light","Moderate","Heavy","Very Heavy"];
+        document.getElementById("rainfall").innerText =
+            rainfallLevels[Math.floor(Math.random() * rainfallLevels.length)];
+
+        const now = new Date();
+
+        document.getElementById("lastUpdated").innerText =
+            "Updated: " + now.toLocaleTimeString();
+
+    }, 4000);
+
+});
+
+</script>
+</body>
+</html>
