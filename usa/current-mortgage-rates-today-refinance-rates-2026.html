@@ -1,0 +1,561 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Mortgage Rates Today: Current Mortgage & Refinance Rates</title>
+  <meta name="description" content="Check current mortgage rates, mortgage refinance rates, 30-year and 15-year mortgage interest rates, and understand how today's rates can affect your monthly payment.">
+  <meta name="keywords" content="current mortgage rates, refinance rates, mortgage interest rates, mortgage refinance rates, mortgage rates, mortgage rates today">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://newsdaily.ink/news/usa/current-mortgage-rates-today.html">
+
+  <script src="https://quge5.com/88/tag.min.js" data-zone="228362" async data-cfasync="false"></script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TXBXT26HKX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TXBXT26HKX');
+  </script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f6f8;
+      color: #222;
+      line-height: 1.7;
+    }
+
+    nav {
+      background: #111827;
+      padding: 14px 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 8px;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 950px;
+      margin: auto;
+      background: #fff;
+      padding: 22px;
+    }
+
+    h1 {
+      font-size: 32px;
+      line-height: 1.25;
+      margin-top: 5px;
+      color: #111827;
+    }
+
+    h2 {
+      color: #1f2937;
+      margin-top: 30px;
+    }
+
+    .updated {
+      background: #eef6ff;
+      border-left: 4px solid #2563eb;
+      padding: 12px;
+      margin: 18px 0;
+      font-size: 14px;
+    }
+
+    .rate-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin: 20px 0;
+    }
+
+    .rate-card {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 18px;
+      background: #fafafa;
+      text-align: center;
+    }
+
+    .rate-card h3 {
+      margin: 0 0 8px;
+      font-size: 17px;
+    }
+
+    .rate {
+      font-size: 29px;
+      font-weight: bold;
+      color: #2563eb;
+    }
+
+    .api-status {
+      font-size: 13px;
+      color: #555;
+      margin-top: 8px;
+    }
+
+    .notice {
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+
+    .calculator {
+      background: #f8fafc;
+      border: 1px solid #dbe3ea;
+      padding: 18px;
+      border-radius: 10px;
+      margin: 25px 0;
+    }
+
+    .calculator input {
+      width: 100%;
+      padding: 12px;
+      margin: 7px 0 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 13px;
+      border: 0;
+      border-radius: 6px;
+      background: #2563eb;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .result {
+      margin-top: 15px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .latest-news {
+      background: #f9fafb;
+      padding: 18px;
+      border-radius: 8px;
+      margin-top: 30px;
+    }
+
+    .latest-news a {
+      color: #1d4ed8;
+      text-decoration: none;
+    }
+
+    .latest-news li {
+      margin-bottom: 12px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px 10px;
+      color: #666;
+      font-size: 13px;
+    }
+
+    @media (max-width: 700px) {
+      .container {
+        padding: 16px;
+      }
+
+      h1 {
+        font-size: 26px;
+      }
+
+      .rate-grid {
+        grid-template-columns: 1fr;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 4px 5px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<nav>
+  <a href="/home.html">Home</a>
+  <a href="/about.html">About</a>
+  <a href="/contact.html">Contact Us</a>
+  <a href="/privacy-policy.html">Privacy</a>
+</nav>
+
+<main class="container">
+
+  <h1>Mortgage Rates Today: Current Mortgage & Refinance Rates</h1>
+
+  <div class="updated">
+    <strong>Mortgage Rate Update:</strong>
+    Rates can change frequently based on economic conditions, Treasury yields,
+    inflation expectations, lender pricing and borrower qualifications.
+    The live data section below is designed to retrieve the latest available
+    market information through the selected data API.
+  </div>
+
+  <section>
+    <h2>Current Mortgage Rates</h2>
+
+    <div class="rate-grid">
+      <div class="rate-card">
+        <h3>30-Year Mortgage</h3>
+        <div class="rate" id="rate30">--</div>
+        <div class="api-status">Latest available data</div>
+      </div>
+
+      <div class="rate-card">
+        <h3>15-Year Mortgage</h3>
+        <div class="rate" id="rate15">--</div>
+        <div class="api-status">Latest available data</div>
+      </div>
+
+      <div class="rate-card">
+        <h3>30-Year Refinance</h3>
+        <div class="rate" id="refi30">--</div>
+        <div class="api-status">Latest available data</div>
+      </div>
+    </div>
+  </section>
+
+  <p>
+    Mortgage interest rates are one of the most important factors to consider
+    when purchasing a home or refinancing an existing mortgage. Even a small
+    difference in the interest rate can significantly change the total amount
+    of interest paid over the life of a loan. Mortgage rates today are
+    influenced by several factors, including inflation, economic growth,
+    Federal Reserve policy expectations, bond-market conditions and lender
+    competition.
+  </p>
+
+  <h2>What Are Mortgage Rates Today?</h2>
+
+  <p>
+    Current mortgage rates refer to the interest rates lenders are offering
+    borrowers for home loans at a particular time. The rate you actually
+    receive may be different from an advertised average because lenders
+    consider credit score, loan amount, down payment, property type,
+    debt-to-income ratio, occupancy and other factors.
+  </p>
+
+  <p>
+    A 30-year fixed-rate mortgage is one of the most commonly used home loans
+    in the United States. It generally provides predictable monthly principal
+    and interest payments for the entire loan term. A 15-year mortgage usually
+    has a higher monthly payment but can allow borrowers to pay off the loan
+    sooner and potentially pay substantially less interest over time.
+  </p>
+
+  <h2>Mortgage Refinance Rates</h2>
+
+  <p>
+    Mortgage refinance rates are rates offered to homeowners who replace an
+    existing mortgage with a new loan. Homeowners may refinance to obtain a
+    lower interest rate, reduce their monthly payment, change the loan term,
+    switch between loan types or access available home equity.
+  </p>
+
+  <p>
+    Refinancing does not automatically save money. Borrowers should compare
+    the new interest rate with their existing rate and consider closing costs,
+    lender fees, appraisal expenses and the remaining time on their current
+    mortgage. A lower rate can still result in limited savings if refinancing
+    costs are high or the homeowner plans to move soon.
+  </p>
+
+  <h2>What Causes Mortgage Rates to Change?</h2>
+
+  <p>
+    Mortgage rates can move in response to economic data and financial-market
+    expectations. Inflation reports, employment figures, economic growth,
+    Federal Reserve decisions and movements in U.S. Treasury yields can all
+    influence mortgage pricing.
+  </p>
+
+  <p>
+    It is important to remember that the Federal Reserve does not directly set
+    the rate for a typical 30-year fixed mortgage. Instead, mortgage rates are
+    strongly influenced by the broader bond market and investor expectations.
+    Lenders then adjust their pricing according to market conditions,
+    operating costs and borrower risk.
+  </p>
+
+  <h2>30-Year vs. 15-Year Mortgage</h2>
+
+  <p>
+    A 30-year mortgage generally offers a lower monthly payment because the
+    loan is spread over a longer period. However, making payments for three
+    decades can result in substantially more total interest.
+  </p>
+
+  <p>
+    A 15-year mortgage usually requires a larger monthly payment but allows
+    borrowers to build equity faster and repay the debt sooner. The best
+    choice depends on income, financial goals, emergency savings and the
+    borrower's expected time in the property.
+  </p>
+
+  <h2>How to Get a Better Mortgage Rate</h2>
+
+  <p>
+    Borrowers can improve their chances of receiving competitive mortgage
+    pricing by maintaining a strong credit profile, reducing outstanding
+    debts, comparing multiple lenders and considering an appropriate down
+    payment. Shopping around can be particularly important because lenders
+    may offer different rates and fees to borrowers with similar financial
+    profiles.
+  </p>
+
+  <p>
+    Before accepting a mortgage offer, compare both the interest rate and the
+    annual percentage rate. The APR can provide additional information because
+    it incorporates certain loan costs beyond the stated interest rate.
+    Borrowers should also review points, lender credits, closing costs and
+    other fees.
+  </p>
+
+  <div class="notice">
+    <strong>Important:</strong> Mortgage rates shown on this page are
+    informational only. Actual rates vary by lender and borrower. Always
+    verify the rate, APR, fees and loan terms directly with a licensed
+    mortgage lender before making a financial decision.
+  </div>
+
+  <h2>Mortgage Payment Calculator</h2>
+
+  <div class="calculator">
+    <label for="loanAmount">Loan Amount ($)</label>
+    <input id="loanAmount" type="number" value="300000">
+
+    <label for="interestRate">Annual Interest Rate (%)</label>
+    <input id="interestRate" type="number" value="6.5" step="0.01">
+
+    <label for="loanYears">Loan Term (Years)</label>
+    <input id="loanYears" type="number" value="30">
+
+    <button onclick="calculateMortgage()">Calculate Monthly Payment</button>
+
+    <div class="result" id="paymentResult"></div>
+  </div>
+
+  <h2>Latest News</h2>
+
+  <div class="latest-news">
+    <ul>
+      <li>
+        <a href="https://newsdaily.ink/news/usa/uae-missile-threats-alert-latest-uae-news-2026.html">
+          UAE Missile Threats Alert: Latest UAE News
+        </a>
+      </li>
+
+      <li>
+        <a href="https://newsdaily.ink/news/usa/frank-beard-zz-top-drummer-passing-cause-of-death-health-2026.html">
+          Frank Beard, ZZ Top Drummer: Passing, Cause of Death and Health News
+        </a>
+      </li>
+
+      <li>
+        <a href="https://newsdaily.ink/stocks/india-vs-pakistan-hockey-world-cup-2026-live-score-time-where-to-watch.html">
+          India vs Pakistan Hockey World Cup 2026: Live Score, Time and Where to Watch
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <h2>About This Mortgage Rate Page</h2>
+
+  <p>
+    This page is intended to provide a convenient starting point for people
+    researching current mortgage rates, mortgage refinance rates and mortgage
+    interest rates. Mortgage pricing can change rapidly, so visitors should
+    treat displayed market information as a snapshot rather than a guaranteed
+    offer.
+  </p>
+
+  <p>
+    When comparing mortgage offers, look beyond the headline rate. Consider
+    the loan term, APR, points, origination charges, closing costs, prepayment
+    provisions and estimated monthly payment. A mortgage with a slightly
+    lower advertised rate may not always be the least expensive option once
+    all costs are considered.
+  </p>
+
+  <p>
+    For refinancing, calculate the break-even period by comparing total
+    refinancing costs with expected monthly savings. For example, if
+    refinancing costs $6,000 and the new mortgage saves $300 per month, the
+    approximate break-even period would be 20 months, before considering taxes,
+    changes in loan term and other costs.
+  </p>
+
+  <p>
+    Mortgage rates today can differ from one lender to another, and rates
+    available to an individual borrower depend on personal financial
+    circumstances. Always obtain personalized quotes and review official loan
+    estimates before proceeding.
+  </p>
+
+</main>
+
+<footer>
+  © 2026 NewsDaily. Mortgage rate information is provided for educational
+  purposes and is not financial advice.
+</footer>
+
+<script>
+  /*
+    LIVE DATA API
+
+    For production use, connect this section to your preferred mortgage-rate
+    data provider. FRED requires an API key.
+
+    Example FRED endpoint:
+    https://api.stlouisfed.org/fred/series/observations
+
+    Recommended FRED series:
+    MORTGAGE30US = 30-Year Fixed Rate Mortgage Average
+    MORTGAGE15US = 15-Year Fixed Rate Mortgage Average
+
+    Replace YOUR_FRED_API_KEY with your API key.
+  */
+
+  const FRED_API_KEY = "YOUR_FRED_API_KEY";
+
+  async function getFredRate(seriesId) {
+    const url =
+      "https://api.stlouisfed.org/fred/series/observations" +
+      "?series_id=" + encodeURIComponent(seriesId) +
+      "&api_key=" + encodeURIComponent(FRED_API_KEY) +
+      "&file_type=json" +
+      "&sort_order=desc" +
+      "&limit=1";
+
+    try {
+      const response = await fetch(url);
+
+      if (!response.ok) {
+        throw new Error("API request failed");
+      }
+
+      const data = await response.json();
+
+      if (
+        data.observations &&
+        data.observations.length > 0 &&
+        data.observations[0].value !== "."
+      ) {
+        return parseFloat(data.observations[0].value);
+      }
+
+      return null;
+    } catch (error) {
+      console.log("Mortgage API error:", error);
+      return null;
+    }
+  }
+
+  async function loadMortgageRates() {
+    const rate30 = document.getElementById("rate30");
+    const rate15 = document.getElementById("rate15");
+    const refi30 = document.getElementById("refi30");
+
+    if (FRED_API_KEY === "YOUR_FRED_API_KEY") {
+      rate30.textContent = "API";
+      rate15.textContent = "API";
+      refi30.textContent = "API";
+      return;
+    }
+
+    const [thirty, fifteen] = await Promise.all([
+      getFredRate("MORTGAGE30US"),
+      getFredRate("MORTGAGE15US")
+    ]);
+
+    rate30.textContent = thirty !== null ? thirty.toFixed(2) + "%" : "N/A";
+    rate15.textContent = fifteen !== null ? fifteen.toFixed(2) + "%" : "N/A";
+
+    /*
+      FRED does not provide a separate daily refinance quote series that
+      should be presented as an actual lender refinance offer. Therefore,
+      the refinance card is intentionally not fabricated.
+    */
+    refi30.textContent = "See lenders";
+  }
+
+  function calculateMortgage() {
+    const principal =
+      parseFloat(document.getElementById("loanAmount").value);
+
+    const annualRate =
+      parseFloat(document.getElementById("interestRate").value);
+
+    const years =
+      parseInt(document.getElementById("loanYears").value);
+
+    if (
+      isNaN(principal) ||
+      isNaN(annualRate) ||
+      isNaN(years) ||
+      principal <= 0 ||
+      annualRate < 0 ||
+      years <= 0
+    ) {
+      document.getElementById("paymentResult").textContent =
+        "Please enter valid loan details.";
+      return;
+    }
+
+    const monthlyRate = annualRate / 100 / 12;
+    const numberOfPayments = years * 12;
+
+    let payment;
+
+    if (monthlyRate === 0) {
+      payment = principal / numberOfPayments;
+    } else {
+      payment =
+        principal *
+        monthlyRate *
+        Math.pow(1 + monthlyRate, numberOfPayments) /
+        (Math.pow(1 + monthlyRate, numberOfPayments) - 1);
+    }
+
+    document.getElementById("paymentResult").textContent =
+      "Estimated monthly principal & interest: $" +
+      payment.toLocaleString("en-US", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      });
+  }
+
+  loadMortgageRates();
+  calculateMortgage();
+</script>
+
+</body>
+</html>
+```
