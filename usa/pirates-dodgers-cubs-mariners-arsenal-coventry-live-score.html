@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Pirates vs Dodgers, Cubs vs Mariners and Arsenal vs Coventry live scores, schedules, match status and real-time updates.">
+<meta name="keywords" content="Pirates vs Dodgers live score, Cubs vs Mariners live score, Arsenal vs Coventry live score, MLB live score, football live score">
+<meta name="robots" content="index, follow">
+<title>Pirates vs Dodgers, Cubs vs Mariners & Arsenal vs Coventry Live Score</title>
+
+<script src="https://quge5.com/88/tag.min.js" data-zone="228362" async data-cfasync="false"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TXBXT26HKX"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-TXBXT26HKX');
+</script>
+
+<style>
+*{box-sizing:border-box}
+body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f4f6f8;
+    color:#202124;
+    line-height:1.65;
+}
+nav{
+    background:#111827;
+    padding:14px 10px;
+    text-align:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+nav a{
+    color:#fff;
+    text-decoration:none;
+    margin:0 10px;
+    font-size:14px;
+}
+.container{
+    max-width:900px;
+    margin:auto;
+    padding:15px;
+}
+h1{
+    font-size:30px;
+    line-height:1.25;
+    margin:15px 0;
+}
+h2{
+    font-size:23px;
+    margin-top:30px;
+}
+.intro{
+    background:#fff;
+    padding:18px;
+    border-radius:12px;
+    box-shadow:0 2px 10px rgba(0,0,0,.06);
+}
+.score-card{
+    background:#fff;
+    margin:18px 0;
+    padding:20px;
+    border-radius:14px;
+    box-shadow:0 2px 12px rgba(0,0,0,.08);
+    border-left:5px solid #2563eb;
+}
+.score-card h2{
+    margin:0 0 12px;
+    font-size:21px;
+}
+.status{
+    display:inline-block;
+    padding:5px 10px;
+    border-radius:20px;
+    background:#e5e7eb;
+    font-size:13px;
+    font-weight:bold;
+}
+.live{
+    background:#dc2626;
+    color:white;
+}
+.team{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:9px 0;
+    border-bottom:1px solid #eee;
+    font-size:18px;
+    font-weight:bold;
+}
+.team:last-child{border-bottom:0}
+.score{
+    font-size:24px;
+}
+.loading{
+    color:#666;
+    font-style:italic;
+}
+.error{
+    color:#b91c1c;
+    font-size:14px;
+}
+.update{
+    color:#666;
+    font-size:13px;
+    margin-top:12px;
+}
+.info{
+    background:#eef6ff;
+    padding:15px;
+    border-radius:10px;
+    margin:20px 0;
+}
+footer{
+    text-align:center;
+    padding:30px 15px;
+    color:#666;
+    font-size:13px;
+}
+@media(max-width:600px){
+    h1{font-size:24px}
+    h2{font-size:20px}
+    .container{padding:10px}
+    .score-card{padding:15px}
+    nav a{
+        margin:0 5px;
+        font-size:12px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<a href="/home.html">Home</a>
+<a href="/about.html">About</a>
+<a href="/contact.html">Contact Us</a>
+<a href="/privacy-policy.html">Privacy</a>
+</nav>
+
+<main class="container">
+
+<h1>Pirates vs Dodgers, Cubs vs Mariners & Arsenal vs Coventry Live Score</h1>
+
+<div class="intro">
+<p>
+Follow live scores, match status, results and game updates for
+<strong>Pittsburgh Pirates vs Los Angeles Dodgers</strong>,
+<strong>Chicago Cubs vs Seattle Mariners</strong> and
+<strong>Arsenal vs Coventry</strong>.
+The scoreboard below connects to ESPN's public scoreboard API and
+automatically refreshes the information every 30 seconds.
+</p>
+
+<p>
+The page is designed for mobile devices and can be used to quickly
+check whether a game is scheduled, in progress, completed or postponed.
+Scores shown on this page are retrieved dynamically rather than being
+manually entered into the HTML.
+</p>
+</div>
+
+<section class="score-card">
+<h2>⚾ Pirates vs Dodgers</h2>
+<div id="pirates-dodgers">
+<p class="loading">Loading live score...</p>
+</div>
+</section>
+
+<section class="score-card">
+<h2>⚾ Cubs vs Mariners</h2>
+<div id="cubs-mariners">
+<p class="loading">Loading live score...</p>
+</div>
+</section>
+
+<section class="score-card">
+<h2>⚽ Arsenal vs Coventry</h2>
+<div id="arsenal-coventry">
+<p class="loading">Loading live score...</p>
+</div>
+</section>
+
+<div class="info">
+<strong>Live score information</strong>
+<p>
+The scoreboard checks the latest available events from ESPN's
+scoreboard service. Baseball games may display innings, outs,
+runs and game status when those details are supplied by the API.
+Football matches may display the current minute, score and match
+status when available.
+</p>
+<p>
+Because live sports data can change quickly, the page automatically
+checks for updates every 30 seconds. If a game has not started yet,
+the scheduled start time may be displayed instead of a score.
+</p>
+</div>
+
+<h2>Pirates vs Dodgers Live Score</h2>
+
+<p>
+The Pittsburgh Pirates and Los Angeles Dodgers are two Major League
+Baseball teams with a long history in professional baseball. When
+their game is underway, this page attempts to display the current
+score and status automatically. Visitors can refresh the page at any
+time, although the automatic update system is designed to reduce the
+need for manual refreshing.
+</p>
+
+<p>
+For baseball fans looking for a quick scoreboard, the most useful
+information is normally the current score, inning and game status.
+Depending on the information returned by the live sports feed, the
+page can also show additional details such as the scheduled start
+time and period of play.
+</p>
+
+<h2>Cubs vs Mariners Live Score</h2>
+
+<p>
+The Chicago Cubs and Seattle Mariners are another MLB matchup
+featured on this page. The live scoreboard searches the current
+baseball schedule and attempts to identify the corresponding teams.
+If the game is scheduled for the current date, its status can be
+displayed automatically.
+</p>
+
+<p>
+When a baseball game is live, score changes can occur frequently.
+The automatic polling system therefore checks the scoreboard at
+regular intervals. This makes the page useful for visitors who want
+a simple live-score view without navigating through multiple sports
+pages.
+</p>
+
+<h2>Arsenal vs Coventry Live Score</h2>
+
+<p>
+Arsenal and Coventry can appear in football competitions and
+fixtures at different levels. The scoreboard therefore searches
+football events returned by the sports data service rather than
+assuming a particular competition.
+</p>
+
+<p>
+If an Arsenal vs Coventry event is available through the selected
+football scoreboard feed, the page displays the event status and
+current score. If no matching event is found, the page explains that
+the fixture is not currently available through the live feed.
+</p>
+
+<h2>How the Live Score Works</h2>
+
+<p>
+This page uses JavaScript to request scoreboard information from
+ESPN's public API. The browser receives the JSON response and then
+searches the returned events for the requested teams. The relevant
+event is converted into a simple mobile-friendly scoreboard.
+</p>
+
+<p>
+The page does not permanently store the live score in the HTML.
+Instead, the browser requests updated information periodically.
+This approach means that the same page can continue displaying
+changing game information without requiring a new HTML file every
+time a score changes.
+</p>
+
+<p>
+The live feed may sometimes be unavailable, delayed or unable to
+provide a particular fixture. Sports APIs can also change their
+response structure. For that reason, this page displays a clear
+message when live information cannot be retrieved instead of
+inventing a score.
+</p>
+
+<h2>Related News</h2>
+
+<ul>
+<li>
+<a href="https://newsdaily.ink/uk/christine-duffy-kidsgrove-resignation-barry-mitchell.html">
+Christine Duffy, Kidsgrove Resignation and Barry Mitchell
+</a>
+</li>
+<li>
+<a href="https://newsdaily.ink/usa/dover-delaware-tornado-arsenal-vs-coventry.html">
+Dover Delaware Tornado and Arsenal vs Coventry
+</a>
+</li>
+<li>
+<a href="https://newsdaily.ink/usa/who-is-natalie-harp-cameroon-nithya-raman-saquon-barkley.html">
+Who Is Natalie Harp, Cameroon, Nithya Raman and Saquon Barkley
+</a>
+</li>
+<li>
+<a href="https://newsdaily.ink/usa/arsenal-vs-coventry-al-riyadh-vs-al-nassr-ban-vs-aus-live-score.html">
+Arsenal vs Coventry, Al Riyadh vs Al Nassr and BAN vs AUS Live Score
+</a>
+</li>
+</ul>
+
+<h2>Important Note</h2>
+
+<p>
+Live sports information is provided for informational purposes.
+Scores and schedules may change because of delays, postponements,
+technical issues or corrections from the underlying sports data
+provider. Always check an official competition or team source for
+the most authoritative information.
+</p>
+
+<div id="last-update" class="update">
+Checking live scoreboard...
+</div>
+
+</main>
+
+<footer>
+© 2026 NewsDaily. All rights reserved.
+</footer>
+
+<script>
+const API_URLS = {
+    mlb: "https://site.api.espn.com/apis/site/v2/sports/baseball/mlb/scoreboard",
+    soccer: "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard"
+};
+
+function normalize(text) {
+    return (text || "")
+        .toLowerCase()
+        .replace(/[^a-z0-9]/g, "");
+}
+
+function eventContains(event, names) {
+    const text = JSON.stringify(event).toLowerCase();
+
+    return names.some(name => {
+        const n = normalize(name);
+        return text.includes(n);
+    });
+}
+
+function getCompetitors(event) {
+    return event?.competitions?.[0]?.competitors || [];
+}
+
+function findScore(event, teamNames) {
+    const competitors = getCompetitors(event);
+
+    for (const c of competitors) {
+        const teamName = c?.team?.displayName || "";
+        const shortName = c?.team?.shortDisplayName || "";
+        const abbreviation = c?.team?.abbreviation || "";
+
+        if (
+            teamNames.some(name =>
+                normalize(teamName).includes(normalize(name)) ||
+                normalize(shortName).includes(normalize(name)) ||
+                normalize(abbreviation).includes(normalize(name))
+            )
+        ) {
+            return c;
+        }
+    }
+
+    return null;
+}
+
+function renderEvent(elementId, event, team1Names, team2Names) {
+    const box = document.getElementById(elementId);
+
+    if (!event) {
+        box.innerHTML =
+            '<p class="error">No matching live fixture is currently available from the sports feed.</p>';
+        return;
+    }
+
+    const competitors = getCompetitors(event);
+
+    const team1 = findScore(event, team1Names);
+    const team2 = findScore(event, team2Names);
+
+    const status = event?.status?.type?.description ||
+                   event?.status?.type?.shortDetail ||
+                   event?.status?.type?.name ||
+                   "Scheduled";
+
+    const state = event?.status?.type?.state || "";
+
+    const isLive =
+        state === "in" ||
+        /live|progress|halftime|playing/i.test(status);
+
+    const date = event?.date
+        ? new Date(event.date).toLocaleString()
+        : "";
+
+    let html = `
+        <span class="status ${isLive ? "live" : ""}">
+            ${isLive ? "● LIVE" : status}
+        </span>
+    `;
+
+    if (competitors.length > 0) {
+        competitors.forEach(c => {
+            const name =
+                c?.team?.displayName ||
+                c?.team?.shortDisplayName ||
+                "Team";
+
+            const score =
+                c?.score !== undefined &&
+                c?.score !== null &&
+                c?.score !== ""
+                    ? c.score
+                    : "-";
+
+            const winner =
+                c?.winner ? " ✓" : "";
+
+            html += `
+                <div class="team">
+                    <span>${escapeHTML(name)}${winner}</span>
+                    <span class="score">${escapeHTML(String(score))}</span>
+                </div>
+            `;
+        });
+    } else {
+        html += `
+            <p>${escapeHTML(event?.name || "Fixture information unavailable")}</p>
+        `;
+    }
+
+    if (date) {
+        html += `<div class="update">Scheduled/updated: ${escapeHTML(date)}</div>`;
+    }
+
+    if (event?.status?.type?.detail) {
+        html += `
+            <div class="update">
+                ${escapeHTML(event.status.type.detail)}
+            </div>
+        `;
+    }
+
+    box.innerHTML = html;
+}
+
+function escapeHTML(value) {
+    return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
+
+async function fetchScoreboard(url) {
+    const response = await fetch(url, {
+        cache: "no-store"
+    });
+
+    if (!response.ok) {
+        throw new Error("Sports API returned HTTP " + response.status);
+    }
+
+    return await response.json();
+}
+
+function findEvent(data, groups) {
+    const events = data?.events || [];
+
+    for (const event of events) {
+        const text = JSON.stringify(event).toLowerCase();
+
+        const hasTeam1 = groups.team1.some(name =>
+            text.includes(normalize(name))
+        );
+
+        const hasTeam2 = groups.team2.some(name =>
+            text.includes(normalize(name))
+        );
+
+        if (hasTeam1 && hasTeam2) {
+            return event;
+        }
+    }
+
+    return null;
+}
+
+async function updateMLB() {
+    try {
+        const data = await fetchScoreboard(API_URLS.mlb);
+
+        const piratesDodgers = findEvent(data, {
+            team1: ["Pittsburgh Pirates", "Pirates"],
+            team2: ["Los Angeles Dodgers", "Dodgers"]
+        });
+
+        const cubsMariners = findEvent(data, {
+            team1: ["Chicago Cubs", "Cubs"],
+            team2: ["Seattle Mariners", "Mariners"]
+        });
+
+        renderEvent(
+            "pirates-dodgers",
+            piratesDodgers,
+            ["Pittsburgh Pirates", "Pirates"],
+            ["Los Angeles Dodgers", "Dodgers"]
+        );
+
+        renderEvent(
+            "cubs-mariners",
+            cubsMariners,
+            ["Chicago Cubs", "Cubs"],
+            ["Seattle Mariners", "Mariners"]
+        );
+
+    } catch (error) {
+        document.getElementById("pirates-dodgers").innerHTML =
+            '<p class="error">Unable to retrieve the MLB live score right now.</p>';
+
+        document.getElementById("cubs-mariners").innerHTML =
+            '<p class="error">Unable to retrieve the MLB live score right now.</p>';
+
+        console.error(error);
+    }
+}
+
+async function updateArsenal() {
+    try {
+        const data = await fetchScoreboard(API_URLS.soccer);
+
+        const event = findEvent(data, {
+            team1: ["Arsenal"],
+            team2: ["Coventry City", "Coventry"]
+        });
+
+        renderEvent(
+            "arsenal-coventry",
+            event,
+            ["Arsenal"],
+            ["Coventry City", "Coventry"]
+        );
+
+    } catch (error) {
+        document.getElementById("arsenal-coventry").innerHTML =
+            '<p class="error">Unable to retrieve the football live score right now.</p>';
+
+        console.error(error);
+    }
+}
+
+async function updateAllScores() {
+    await Promise.allSettled([
+        updateMLB(),
+        updateArsenal()
+    ]);
+
+    document.getElementById("last-update").textContent =
+        "Last checked: " + new Date().toLocaleString();
+}
+
+updateAllScores();
+
+/*
+Refresh live information every 30 seconds.
+*/
+setInterval(updateAllScores, 30000);
+</script>
+
+</body>
+</html>
