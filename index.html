@@ -1,49 +1,570 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>NewsDaily - Latest India and USA News</title>
-<meta name="description" content="NewsDaily brings you the latest India and USA news, updates and important stories.">
+
+<meta name="description" content="Stay informed with NewsDaily for the latest India and USA news, breaking developments, politics, business and important headlines.">
+
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://newsdaily.ink/">
+
+<meta name="theme-color" content="#ffffff">
+
+<style>
+:root {
+    --primary: #174ea6;
+    --primary-dark: #123b78;
+    --text: #172033;
+    --muted: #647084;
+    --line: #e7eaf0;
+    --soft: #f4f7fc;
+    --white: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    background: var(--white);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:focus-visible {
+    outline: 3px solid #80aaff;
+    outline-offset: 4px;
+}
+
+.container {
+    width: min(1120px, 92%);
+    margin: 0 auto;
+}
+
+/* Top information bar */
+
+.topbar {
+    background: var(--soft);
+    border-bottom: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 12px;
+    padding: 7px 0;
+}
+
+.topbar-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Brand header */
+
+.site-header {
+    background: var(--white);
+}
+
+.brand-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 24px 0 20px;
+}
+
+.logo {
+    font-size: clamp(30px, 5vw, 42px);
+    line-height: 1.15;
+    font-weight: 800;
+    letter-spacing: -1.8px;
+    color: var(--text);
+}
+
+.logo span {
+    color: var(--primary);
+}
+
+.tagline {
+    color: var(--muted);
+    font-size: 13px;
+    margin: 5px 0 0;
+}
+
+.header-note {
+    color: var(--muted);
+    font-size: 13px;
+    text-align: right;
+}
+
+/* Navigation */
+
+.navigation {
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+
+.nav-inner {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    min-height: 49px;
+    overflow-x: auto;
+}
+
+.nav-inner a {
+    flex-shrink: 0;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 12px 0;
+}
+
+.nav-inner a:hover {
+    color: var(--primary);
+}
+
+/* Introduction */
+
+.hero {
+    padding: 48px 0 38px;
+}
+
+.eyebrow {
+    display: inline-block;
+    color: var(--primary);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.hero h1 {
+    max-width: 780px;
+    font-size: clamp(32px, 5vw, 53px);
+    line-height: 1.13;
+    letter-spacing: -1.8px;
+    margin: 0 0 18px;
+}
+
+.hero h1 span {
+    color: var(--primary);
+}
+
+.hero-description {
+    max-width: 670px;
+    font-size: 17px;
+    color: var(--muted);
+    margin: 0;
+}
+
+/* Country news sections */
+
+.news-section {
+    padding: 30px 0 36px;
+    border-top: 1px solid var(--line);
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.section-heading h2 {
+    font-size: 25px;
+    line-height: 1.3;
+    letter-spacing: -0.6px;
+    margin: 0;
+}
+
+.section-heading p {
+    margin: 5px 0 0;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.read-link {
+    flex-shrink: 0;
+    font-size: 14px;
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.read-link:hover {
+    color: var(--primary-dark);
+}
+
+.country-content {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 24px;
+    padding: 23px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+
+.country-content h3 {
+    font-size: 21px;
+    margin: 0 0 8px;
+    line-height: 1.4;
+}
+
+.country-content p {
+    color: var(--muted);
+    font-size: 15px;
+    margin: 0;
+    max-width: 690px;
+}
+
+.country-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary);
+    color: var(--white);
+    padding: 11px 19px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 700;
+    white-space: nowrap;
+    transition: background 0.2s ease;
+}
+
+.country-link:hover {
+    background: var(--primary-dark);
+}
+
+/* About NewsDaily */
+
+.about-section {
+    background: var(--soft);
+    padding: 36px 0;
+    margin-top: 8px;
+}
+
+.about-section h2 {
+    font-size: 25px;
+    margin: 0 0 12px;
+    letter-spacing: -0.5px;
+}
+
+.about-section p {
+    color: var(--muted);
+    max-width: 800px;
+    font-size: 15px;
+    margin: 0;
+}
+
+/* Footer */
+
+.site-footer {
+    padding: 30px 0 20px;
+}
+
+.footer-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 24px;
+    padding-bottom: 22px;
+}
+
+.footer-brand {
+    font-size: 23px;
+    font-weight: 800;
+    letter-spacing: -0.8px;
+}
+
+.footer-brand span {
+    color: var(--primary);
+}
+
+.footer-description {
+    color: var(--muted);
+    font-size: 13px;
+    margin: 5px 0 0;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.footer-links a:hover {
+    color: var(--primary);
+}
+
+.copyright {
+    border-top: 1px solid var(--line);
+    padding-top: 16px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+/* Mobile layout */
+
+@media (max-width: 600px) {
+    .container {
+        width: 90%;
+    }
+
+    .topbar-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .brand-row {
+        padding: 19px 0;
+    }
+
+    .header-note {
+        display: none;
+    }
+
+    .nav-inner {
+        gap: 23px;
+    }
+
+    .hero {
+        padding: 34px 0 29px;
+    }
+
+    .hero h1 {
+        letter-spacing: -1px;
+    }
+
+    .hero-description {
+        font-size: 15px;
+    }
+
+    .news-section {
+        padding: 26px 0 30px;
+    }
+
+    .section-heading h2 {
+        font-size: 22px;
+    }
+
+    .country-content {
+        grid-template-columns: 1fr;
+        gap: 17px;
+    }
+
+    .country-content h3 {
+        font-size: 19px;
+    }
+
+    .country-link {
+        justify-self: start;
+    }
+
+    .about-section {
+        padding: 30px 0;
+    }
+
+    .footer-main {
+        flex-direction: column;
+    }
+
+    .footer-links {
+        gap: 12px 18px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    * {
+        transition: none !important;
+    }
+}
+</style>
 </head>
 
 <body>
 
-<header>
-<h1>NewsDaily</h1>
-<p>Latest India and USA News</p>
+<div class="topbar">
+    <div class="container topbar-inner">
+        <span>Independent news and important updates</span>
+        <span>India &amp; United States</span>
+    </div>
+</div>
+
+<header class="site-header">
+    <div class="container brand-row">
+        <div>
+            <a class="logo" href="/" aria-label="NewsDaily home">
+                News<span>Daily</span>
+            </a>
+            <p class="tagline">The stories that matter, made simple.</p>
+        </div>
+
+        <div class="header-note">
+            India News &nbsp; | &nbsp; USA News
+        </div>
+    </div>
 </header>
+
+<nav class="navigation" aria-label="Main navigation">
+    <div class="container nav-inner">
+        <a href="/">Home</a>
+        <a href="/india/">India News</a>
+        <a href="/usa/">USA News</a>
+        <a href="/about.html">About Us</a>
+        <a href="/contact.html">Contact</a>
+    </div>
+</nav>
 
 <main>
 
-<h2>Latest News</h2>
+    <section class="hero">
+        <div class="container">
+            <span class="eyebrow">Your daily news destination</span>
 
-<p>
-<a href="/india/">India News</a>
-</p>
+            <h1>
+                Stay informed about
+                <span>the world around you.</span>
+            </h1>
 
-<p>
-<a href="/usa/">USA News</a>
-</p>
+            <p class="hero-description">
+                Discover important news and developments from India
+                and the United States. Explore the stories, understand
+                the issues, and stay connected with what matters.
+            </p>
+        </div>
+    </section>
 
-<h2>NewsDaily</h2>
+    <section class="news-section" aria-labelledby="india-heading">
+        <div class="container">
 
-<p>
-NewsDaily provides simple and timely updates covering important news and developments from India and the United States.
-</p>
+            <div class="section-heading">
+                <div>
+                    <h2 id="india-heading">India News</h2>
+                    <p>Important developments from across India.</p>
+                </div>
+
+                <a class="read-link" href="/india/">
+                    Explore India &rarr;
+                </a>
+            </div>
+
+            <div class="country-content">
+                <div>
+                    <h3>India: News, Updates &amp; Developments</h3>
+                    <p>
+                        Explore coverage of Indian affairs, government,
+                        politics, business, the economy, technology,
+                        society, and other important national developments.
+                    </p>
+                </div>
+
+                <a class="country-link" href="/india/">
+                    Read India News &rarr;
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="news-section" aria-labelledby="usa-heading">
+        <div class="container">
+
+            <div class="section-heading">
+                <div>
+                    <h2 id="usa-heading">USA News</h2>
+                    <p>Follow important stories from the United States.</p>
+                </div>
+
+                <a class="read-link" href="/usa/">
+                    Explore USA &rarr;
+                </a>
+            </div>
+
+            <div class="country-content">
+                <div>
+                    <h3>United States: News &amp; Current Affairs</h3>
+                    <p>
+                        Discover coverage of American politics, business,
+                        the economy, technology, public affairs, and
+                        significant developments across the United States.
+                    </p>
+                </div>
+
+                <a class="country-link" href="/usa/">
+                    Read USA News &rarr;
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="about-section">
+        <div class="container">
+            <h2>About NewsDaily</h2>
+
+            <p>
+                NewsDaily is an online news platform focused on important
+                developments in India and the United States. Our aim is to
+                make news easy to explore through clear navigation,
+                accessible presentation, and timely updates. Visit our
+                country news sections to discover the latest published stories.
+            </p>
+        </div>
+    </section>
 
 </main>
 
-<footer>
-<p>
-<a href="/about.html">About</a> |
-<a href="/contact.html">Contact</a> |
-<a href="/privacy-policy.html">Privacy Policy</a>
-</p>
+<footer class="site-footer">
+    <div class="container">
 
-<p>© 2026 NewsDaily</p>
+        <div class="footer-main">
+            <div>
+                <a class="footer-brand" href="/">
+                    News<span>Daily</span>
+                </a>
+                <p class="footer-description">
+                    India and USA news, all in one place.
+                </p>
+            </div>
+
+            <nav class="footer-links" aria-label="Footer navigation">
+                <a href="/about.html">About</a>
+                <a href="/contact.html">Contact</a>
+                <a href="/privacy-policy.html">Privacy Policy</a>
+            </nav>
+        </div>
+
+        <div class="copyright">
+            &copy; 2026 NewsDaily. All rights reserved.
+        </div>
+
+    </div>
 </footer>
 
 </body>
